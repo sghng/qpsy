@@ -1,0 +1,6 @@
+node_modules/
+.vitepress/dist/
+.vitepress/cache/
+public/llms.txt
+public/registry.json
+.playwright-mcp/

@@ -1,0 +1,16 @@
+{
+  "name": "qpsy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "index": "bun scripts/build-index.mjs",
+    "dev": "bun scripts/build-index.mjs && vitepress dev .",
+    "build": "bun scripts/build-index.mjs && vitepress build .",
+    "preview": "bun scripts/build-index.mjs && vitepress preview ."
+  },
+  "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.13"
+  }
+}
