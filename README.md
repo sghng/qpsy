@@ -1,66 +1,99 @@
 # qpsy
 
-A documentation layer for quantitative psychology. It reads as documentation,
-but the content is research knowledge: method families, statistical modeling
-practice, research conventions, writing standards, and a paper review
-registry.
+qpsy is a public, agent-first knowledge vault for quantitative research. It is
+intended to give an agent one self-contained reference system for the knowledge
+it needs to perform quantitative research effectively. The website is human
+readable, but agent infrastructure takes priority over the browsing experience.
 
 Site: [qpsy.dev](https://qpsy.dev). Source: this repository.
 
-## Structure
+## Purpose and scope
 
-| Path | Content |
+qpsy is a project-independent reference and manual, not a lab notebook. It does
+not contain the data, procedures, decisions, or status of particular research
+projects. Agents working on any project should be able to consult it for methods,
+modeling practice, research conventions, writing standards, and paper-level
+methodological knowledge.
+
+Coverage should be comprehensive for graduate-level and advanced material.
+Foundational and undergraduate material is included selectively when it supports
+that body of knowledge; qpsy does not need a page for every elementary topic.
+Initial coverage is driven by methods used in the maintainer's research, with
+broader contributions from other users expected over time.
+
+## Paper registry
+
+The registry complements abstract-oriented discovery services such as OpenAlex
+and Semantic Scholar. Its purpose is to make the methodological core of papers
+structured and retrievable: model definitions, likelihoods, central equations,
+assumptions, and relationships to other models and papers.
+
+Entries are neutral and evidence-bound rather than evaluative. Metadata is
+verified, DOIs provide the retrieval path, and qpsy is not a full-text archive.
+The registry supports both direct lookup and deeper synthesis across papers.
+
+## Architecture and methodology
+
+### Markdown is the source of truth
+
+The canonical substrate is a Git-versioned Markdown vault in Obsidian shape:
+frontmatter, stable page identities, explicit sources, and `[[wikilinks]]`
+connecting related ideas. The repository can be cloned and opened in Obsidian or
+mounted directly as an agent reference directory. Quartz, Context7, and search
+indexes are consumers of this content, not its source of truth.
+
+### Quartz publishes the vault
+
+Quartz 5 renders the vault as a static website. It is the publishing layer, not
+the substrate, and can be replaced without changing the knowledge corpus. The
+useful graph is the machine-traversable link structure, not merely its visual
+representation.
+
+### Agents have several access paths
+
+- Fetch the website and its clean Markdown and structured indexes.
+- Use `/llms.txt` for discovery and `/registry.json` for registry metadata.
+- Clone or fetch raw files from GitHub for local inspection and indexing.
+- Query the public content through Context7, which indexes documentation rather
+  than only source code and provides another retrieval and distribution path.
+
+Generated indexes are build outputs and must never be hand-edited.
+
+### Retrieval is a separate layer
+
+Web fetching, Context7, local search, and future hybrid or graph-aware retrieval
+can coexist without changing the vault. Retrieval should support an agent loop
+of searching, reading complete passages, following links, and gathering enough
+evidence—not only returning isolated snippets. Retrieval technology should be
+evaluated against real qpsy queries before new infrastructure is adopted.
+
+## Current scaffold and migration
+
+The project is transitioning from its original VitePress scaffold to the vault
+and Quartz architecture above. The current root layout and commands remain
+operational during migration; differences from the target architecture are
+unfinished implementation, not a different project vision.
+
+| Path | Current content |
 | --- | --- |
-| `index.md` | homepage, including the agent guide |
-| `notation.md` | symbol conventions used across the site |
-| `topics/` | curated method families (CDM, IRT, ...) |
-| `modeling/` | the statistical modeling workflow |
-| `research/` | methodology, pipeline, venues, peer review |
+| `index.md` | homepage and agent guide |
+| `notation.md` | shared symbol conventions |
+| `topics/` | method families |
+| `modeling/` | statistical modeling practice |
+| `research/` | research methods and conventions |
 | `writing/` | academic writing conventions |
-| `registry/` | one markdown file per reviewed paper |
-| `scripts/build-index.mjs` | generates the agent surfaces |
-| `.vitepress/` | VitePress config and theme |
+| `registry/` | one Markdown file per reviewed paper |
+| `scripts/build-index.mjs` | generates the current agent indexes |
+| `.vitepress/` | transitional site configuration and theme |
 
-## Tooling
-
-Bun only. No npm, no node invocations.
+Everything is maintained with Bun; never invoke npm or node directly.
 
 ```sh
 bun install
-bun run dev      # regenerate indexes, serve with live reload
-bun run build    # regenerate indexes, build to .vitepress/dist
+bun run dev      # regenerate indexes and serve with live reload
+bun run build    # regenerate indexes and build the current site
 bun run preview  # serve the production build locally
 ```
-
-## Agent surfaces
-
-Two files are generated at the site root on every build and must never be
-hand-edited (`bun run index` regenerates them):
-
-- `/llms.txt` lists every page with a one-line description.
-- `/registry.json` is a flat structured index of the paper registry.
-
-## Adding a registry entry
-
-1. Verify the paper's metadata against Crossref for its DOI.
-2. Create `registry/<key>.md`, where `<key>` is `firstauthor-year`, with the
-   frontmatter schema in [registry/index.md](/registry/).
-3. Write the Model and Likelihood sections, quote the publisher abstract
-   verbatim under "Publisher abstract", and stop there. Entries are
-   descriptive only. No full text, no excerpts beyond the abstract.
-4. Run `bun run index` and commit.
-
-## Deployment
-
-Cloudflare Pages, Git integration from `main`.
-
-- Build command: `bun install && bun run build`
-- Build output directory: `.vitepress/dist`
-- Environment variable: `SKIP_DEPENDENCY_INSTALL=true` (Pages does not detect
-  the text `bun.lock`, so the automatic installer would fall back to npm)
-- Optional: pin `BUN_VERSION` to the local `bun -v` to keep build parity
-
-Every push to `main` deploys. Pull requests get preview URLs.
 
 ## License
 
