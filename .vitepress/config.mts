@@ -30,6 +30,17 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Analysis of Variance',
+          items: [
+            { text: 'Overview', link: '/topics/anova/' },
+            { text: 'One-Way ANOVA', link: '/topics/anova/one-way-anova' },
+            { text: 'Model Comparison', link: '/topics/anova/model-comparison' },
+            { text: 'Linear Contrasts', link: '/topics/anova/contrasts' },
+            { text: 'Multiple Comparisons', link: '/topics/anova/multiple-comparisons' },
+            { text: 'Power for Omnibus ANOVA', link: '/topics/anova/power' },
+          ],
+        },
+        {
           text: 'Quantitative Foundations',
           items: [
             { text: 'Overview', link: '/topics/foundations/' },

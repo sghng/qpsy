@@ -216,6 +216,6 @@ variability, and the standard error that measures it, is the subject of
 [Sampling Distributions](/topics/foundations/sampling-distributions). The
 standard deviation serves as the standardizing unit for standardized effect
 measures in [Effect Sizes](/topics/foundations/effect-sizes), and the
-variance decomposition logic reappears in analysis of variance and
+variance decomposition logic reappears in [analysis of variance](/topics/anova/one-way-anova) and
 regression. Descriptive summaries describe the data at hand; saying what
 they imply beyond it requires the inferential machinery those notes develop.

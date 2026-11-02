@@ -10,6 +10,7 @@ assumptions, and its relationships to other methods.
 
 ## Method families
 
+- [Analysis of Variance](/topics/anova/)
 - [Cognitive Diagnosis Models](/topics/cdm)
 - [Item Response Theory](/topics/irt)
 

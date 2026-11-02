@@ -54,10 +54,14 @@ For slides and PDFs:
 
 1. Convert editable slides to PDF when a reliable converter is available.
 2. Extract layout-preserving text with explicit page or slide markers.
-3. Extract speaker notes from the original slide package; PDF conversion does
+3. For PowerPoint sources, also extract text and equations directly from the
+   slide XML, including Office Math Markup Language (OMML), before resorting to
+   OCR. PDF conversion and plain text extraction can lose equations that remain
+   intact in the editable source.
+4. Extract speaker notes from the original slide package; PDF conversion does
    not preserve them.
-4. Read exercises and solutions alongside the corresponding lecture.
-5. Render pages as images for targeted visual inspection.
+5. Read exercises and solutions alongside the corresponding lecture.
+6. Render pages as images for targeted visual inspection.
 
 Text extraction is an index, not proof of completeness. Equations, diagrams,
 tables, and text embedded in images may be absent or garbled. Flag such pages
@@ -74,6 +78,12 @@ bundles to subagents. Readers may consult neighboring bundles for context, but
 must identify those claims as secondary; the synthesis step names the
 authoritative brief for each concept. Give every reader the same output
 contract and require a working brief, not polished repository prose.
+
+Preflight whether each reader can ingest images. Assign rendered slides,
+handwritten solutions, and other image-dependent evidence to the `visual`
+subagent or another vision-capable reader. Text-only readers must leave those
+items explicitly open for visual handoff. OCR can help locate content, but it is
+not visual verification and must not be reported as such.
 
 Each source brief must contain:
 

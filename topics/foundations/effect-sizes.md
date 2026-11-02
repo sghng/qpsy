@@ -88,3 +88,13 @@ what defines a specific alternative hypothesis, and power is computed against
 that alternative. See [Statistical Power](/topics/foundations/statistical-power).
 The hypothesis-testing context for the tests themselves is in
 [Hypothesis Testing](/topics/foundations/hypothesis-testing).
+
+## Method-specific measures
+
+Different model families motivate different standardized summaries. In one-way
+ANOVA, [Model Comparison](/topics/anova/model-comparison) develops $\eta^2$ as
+proportional error reduction, while [Linear Contrasts](/topics/anova/contrasts)
+distinguishes standardized contrasts and variance-explained measures with
+between-group and total denominators. [Power for Omnibus ANOVA](/topics/anova/power)
+defines Cohen's $f$ for specifying an omnibus alternative. These measures are
+not interchangeable with Cohen's $d$ or with one another.

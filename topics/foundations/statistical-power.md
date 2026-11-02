@@ -110,3 +110,8 @@ $0.80$), or report the power attainable at feasible sample sizes. Retrospective
 uninformative. Power analysis is also the practical way to demonstrate control
 of Type II error rates, since $\beta$ — unlike $\alpha$ — cannot be fixed by
 convention and depends on all of the factors above.
+
+For omnibus fixed-effects ANOVA, the alternative is represented by a noncentral
+$F$ distribution and Cohen's $f$ rather than a single normal or $t$ sampling
+distribution. [Power for Omnibus ANOVA](/topics/anova/power) develops that
+calculation.
