@@ -22,11 +22,27 @@ export default defineConfig({
     sidebar: {
       '/topics/': [
         {
-          text: 'Selected Topics',
+          text: 'Method Families',
           items: [
             { text: 'Overview', link: '/topics/' },
             { text: 'Cognitive Diagnosis Models', link: '/topics/cdm' },
             { text: 'Item Response Theory', link: '/topics/irt' },
+          ],
+        },
+        {
+          text: 'Quantitative Foundations',
+          items: [
+            { text: 'Overview', link: '/topics/foundations/' },
+            { text: 'Descriptive Statistics', link: '/topics/foundations/descriptive-statistics' },
+            { text: 'Probability', link: '/topics/foundations/probability' },
+            { text: 'Sampling Distributions', link: '/topics/foundations/sampling-distributions' },
+            { text: 'Hypothesis Testing', link: '/topics/foundations/hypothesis-testing' },
+            { text: 'P-Values', link: '/topics/foundations/p-values' },
+            { text: 'Effect Sizes', link: '/topics/foundations/effect-sizes' },
+            { text: 'Statistical Power', link: '/topics/foundations/statistical-power' },
+            { text: 'Confidence Intervals', link: '/topics/foundations/confidence-intervals' },
+            { text: 'Sign Test', link: '/topics/foundations/sign-test' },
+            { text: 't Tests', link: '/topics/foundations/t-tests' },
           ],
         },
       ],

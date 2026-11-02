@@ -39,6 +39,19 @@ One markdown file per paper under `registry/`, filename equal to `key`.
   "Last verified" date line and get re-verified, not trusted, on reuse.
 - Neutral voice, no first person. Cite papers by DOI, not by memory.
 
+## Skill reflection and improvement
+
+During every task—not only ingestion or content consolidation—evaluate where
+current workflows, instructions, and skills are insufficient, unclear, or
+otherwise not good enough. Look for recurring friction, missing safeguards,
+and avoidable rework, distinguishing transferable lessons from one-off issues.
+
+When a lesson could improve a skill, propose the concrete revision and its
+rationale to the user. If no skill covers a recurring need, propose a new one.
+Do not treat current skills as finished or rewrite them without user review.
+Do not manufacture proposals for one-off issues or let reflection displace the
+requested work.
+
 ## Commits and deploys
 
 Conventional commits. Push to `main` triggers the Cloudflare Pages build

@@ -1,16 +1,21 @@
 ---
-desc: Curated method families for quantitative psychology research
+desc: Method families and statistical foundations for quantitative research
 ---
 
-# Selected Topics
+# Topics
 
-This section holds curated knowledge for method families that quantitative
-psychology research actually invokes. It is deliberately selective: a topic
-earns a page when research here uses it, not because it exists.
+This section organizes quantitative-research knowledge by method and concept.
+Pages explain what a method is for, its central definitions and models, its
+assumptions, and its relationships to other methods.
 
-Each topic page answers the same questions: what the method family is for,
-what its core models are, how estimation proceeds, what the common failure
-modes are, and where the registry entries live.
+## Method families
 
 - [Cognitive Diagnosis Models](/topics/cdm)
 - [Item Response Theory](/topics/irt)
+
+## Foundations
+
+[Quantitative Foundations](/topics/foundations/) contains selective notes on
+descriptive statistics, probability, statistical inference, and tests for
+location. These pages supply shared concepts used by more advanced methods
+rather than duplicating an elementary textbook.
