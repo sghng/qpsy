@@ -52,7 +52,8 @@ representation.
 ### Agents have several access paths
 
 - Fetch the website and its clean Markdown and structured indexes.
-- Use `/llms.txt` for discovery and `/registry.json` for registry metadata.
+- Use `/llms.txt` for discovery, `/registry.json` for registry metadata, and
+  `/graph.json` for the link graph.
 - Clone or fetch raw files from GitHub for local inspection and indexing.
 - Query the public content through Context7, which indexes documentation rather
   than only source code and provides another retrieval and distribution path.
@@ -67,32 +68,27 @@ of searching, reading complete passages, following links, and gathering enough
 evidence—not only returning isolated snippets. Retrieval technology should be
 evaluated against real qpsy queries before new infrastructure is adopted.
 
-## Current scaffold and migration
+## Repository layout
 
-The project is transitioning from its original VitePress scaffold to the vault
-and Quartz architecture above. The current root layout and commands remain
-operational during migration; differences from the target architecture are
-unfinished implementation, not a different project vision.
-
-| Path | Current content |
+| Path | Content |
 | --- | --- |
-| `index.md` | homepage and agent guide |
-| `notation.md` | shared symbol conventions |
-| `topics/` | method families |
-| `modeling/` | statistical modeling practice |
-| `research/` | research methods and conventions |
-| `writing/` | academic writing conventions |
-| `registry/` | one Markdown file per reviewed paper |
-| `scripts/build-index.mjs` | generates the current agent indexes |
-| `.vitepress/` | transitional site configuration and theme |
+| `content/` | the canonical vault: `topics/`, `modeling/`, `research/`, `writing/`, `registry/`, the homepage, and notation |
+| `quartz.config.yaml` | publisher configuration (Quartz 5) |
+| `.quartz-engine/` | pinned Quartz engine, gitignored, fetched by `bun run bootstrap` |
+| `scripts/build-index.mjs` | generates `llms.txt`, `registry.json`, `graph.json` |
+| `scripts/bootstrap-quartz.mjs` | fetches the pinned engine and links the project into it |
+
+The publisher is not a fork: the engine is disposable tooling (like
+`node_modules`), and only the project files above are committed. Upgrades
+happen by bumping the pin in `scripts/bootstrap-quartz.mjs`.
 
 Everything is maintained with Bun; never invoke npm or node directly.
 
 ```sh
 bun install
-bun run dev      # regenerate indexes and serve with live reload
-bun run build    # regenerate indexes and build the current site
-bun run preview  # serve the production build locally
+bun run bootstrap  # fetch the pinned Quartz engine (once per engine version)
+bun run dev        # build and serve with hot reload
+bun run build      # full build into public/, then regenerate agent indexes
 ```
 
 ## License

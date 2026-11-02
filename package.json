@@ -3,14 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "bootstrap": "bun scripts/bootstrap-quartz.mjs",
     "index": "bun scripts/build-index.mjs",
-    "dev": "bun scripts/build-index.mjs && vitepress dev .",
-    "build": "bun scripts/build-index.mjs && vitepress build .",
-    "preview": "bun scripts/build-index.mjs && vitepress preview ."
+    "dev": "bun run bootstrap && cd .quartz-engine && bun ./quartz/bootstrap-cli.mjs build -d content -o ../public --serve",
+    "build": "bun run bootstrap && cd .quartz-engine && bun ./quartz/bootstrap-cli.mjs build -d content -o ../public && cd .. && bun run index"
   },
-  "devDependencies": {
-    "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "^1.6.4",
-    "vue": "^3.5.13"
-  }
+  "devDependencies": {}
 }

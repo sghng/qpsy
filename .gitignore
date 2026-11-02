@@ -1,6 +1,6 @@
 node_modules/
-.vitepress/dist/
-.vitepress/cache/
-public/llms.txt
-public/registry.json
+.quartz-engine/
+.quartz/
+.quartz-cache/
+public/
 .playwright-mcp/
