@@ -1,23 +1,29 @@
 ---
 name: material-ingestion
-description: Ingest slides, lecture notes, papers, and other source materials into durable, linked qpsy concept notes. Use when synthesizing a collection of external materials, designing note boundaries from sources, or coordinating parallel readers and writers. Do not use for a routine single-paper registry entry, a summary that will not become repository content, or unsourced writing from scratch.
+description: Ingest source materials of any format into durable, linked qpsy concept notes. Use when synthesizing a collection of external materials, designing note boundaries from sources, or coordinating parallel readers and writers. Do not use for a routine single-paper registry entry, a summary that will not become repository content, or unsourced writing from scratch.
 ---
 
 # Material Ingestion
 
 Turn source materials into durable knowledge, not a transcript or a set of
-lecture summaries. Preserve evidence and provenance during ingestion, then
-organize the public notes around concepts and their relationships.
+per-document summaries. Preserve evidence and provenance during ingestion,
+then organize the public notes around concepts and their relationships.
+
+The methodology is format-independent. Materials arrive in whatever form the
+user supplies — files, books, articles, web pages, or mixed collections — and
+no particular source type, directory layout, or extraction toolchain is
+assumed. Choose extraction mechanics per job; the workflow below governs
+evidence handling and synthesis regardless of format.
 
 Follow the repository conventions in `AGENTS.md` and load `obsidian-markdown`
 when authoring Obsidian-shaped content.
 
 ## Principles
 
-- **Concepts outrank source order.** A lecture, chapter, or file is evidence,
-  not automatically a note boundary.
+- **Concepts outrank source order.** A single source, however it is
+  structured, is evidence, not automatically a note boundary.
 - **Synthesis is not transcription.** Explain ideas in original prose. Do not
-  republish slide decks, textbook passages, or other source content.
+  republish source content.
 - **One concept has one canonical home.** Other notes link to it rather than
   duplicating its definition or procedure.
 - **Sources inform; they do not govern by authority.** Check ambiguous,
@@ -26,27 +32,29 @@ when authoring Obsidian-shaped content.
   examples, derived statistics, arithmetic quoted from notes, or numbers
   constructed for a new example — run the math in Python or R. Mental
   arithmetic and recalled constants are drafts, not checks.
-- **Provenance survives summarization.** Keep source and page or slide
-  references in working notes until all factual and mathematical checks pass.
-- **Public notes stay project-independent.** Remove course logistics, local
-  paths, classroom anecdotes, assessment details, and personal commentary.
+- **Provenance survives summarization.** Keep source references and locations
+  in working notes until all factual and mathematical checks pass.
+- **Public notes stay project-independent.** Remove logistics, local paths,
+  anecdotes, and personal commentary that only make sense in the source's
+  original context.
 
 ## Workflow
 
 ### 1. Inventory and scope
 
-Inspect the source directory and existing repository before extracting content.
-Check the working tree and read the relevant conventions.
+Inspect the supplied materials and existing repository before extracting
+content. Check the working tree and read the relevant conventions.
 
 Classify each input as:
 
 - primary material;
-- exercises, solutions, or speaker notes that clarify primary material;
-- supplementary readings or reference tables;
+- companion material (solutions, notes, appendices) that clarifies primary
+  material;
+- supplementary readings or reference material;
 - duplicate renderings of the same content.
 
 Record the requested scope and exclusions. Do not assume that every supplied
-file deserves a public note. Identify existing pages that could become the
+item deserves a public note. Identify existing pages that could become the
 canonical home for incoming material.
 
 ### 2. Extract without losing structure
@@ -54,57 +62,56 @@ canonical home for incoming material.
 Use a temporary workspace for converted files and intermediate briefs. Leave
 originals unchanged and ask before installing missing software.
 
-For slides and PDFs:
+Adapt the mechanics to the material at hand:
 
-1. Convert editable slides to PDF when a reliable converter is available.
-2. Extract layout-preserving text with explicit page or slide markers.
-3. For PowerPoint sources, also extract text and equations directly from the
-   slide XML, including Office Math Markup Language (OMML), before resorting to
-   OCR. PDF conversion and plain text extraction can lose equations that remain
-   intact in the editable source.
-4. Extract speaker notes from the original slide package; PDF conversion does
-   not preserve them.
-5. Read exercises and solutions alongside the corresponding lecture.
-6. Render pages as images for targeted visual inspection.
+1. Extract content into a workable text form, preserving explicit
+   source-location markers wherever the format provides them.
+2. Prefer the richest available representation: editable or structured
+   sources can retain content (equations, annotations, embedded data) that
+   flattened renderings lose.
+3. Read companion material alongside the corresponding primary material.
+4. Use visual inspection for passages whose content does not survive text
+   extraction.
 
 Text extraction is an index, not proof of completeness. Equations, diagrams,
-tables, and text embedded in images may be absent or garbled. Flag such pages
-for visual verification instead of silently filling gaps from memory.
+tables, and text embedded in images may be absent or garbled. Flag such
+passages for visual verification instead of silently filling gaps from memory.
 
-Maintain a shared extraction ledger marking each file complete, partial, empty,
-duplicated, or conflicting. This prevents every reader from rediscovering the
-same extraction failures.
+Maintain a shared extraction ledger marking each item complete, partial,
+empty, duplicated, or conflicting. This prevents every reader from
+rediscovering the same extraction failures.
 
 ### 3. Commission independent source readings
 
-For a multi-file collection, assign primary ownership of disjoint source
+For a multi-source collection, assign primary ownership of disjoint source
 bundles to subagents. Readers may consult neighboring bundles for context, but
 must identify those claims as secondary; the synthesis step names the
 authoritative brief for each concept. Give every reader the same output
 contract and require a working brief, not polished repository prose.
 
-Preflight whether each reader can ingest images. Assign rendered slides,
-handwritten solutions, and other image-dependent evidence to the `visual`
-subagent or another vision-capable reader. Text-only readers must leave those
-items explicitly open for visual handoff. OCR can help locate content, but it is
-not visual verification and must not be reported as such.
+Preflight whether each reader can ingest images. Assign image-dependent
+evidence (figures, scanned or handwritten material, visually dense layouts)
+to the `visual` subagent or another vision-capable reader. Text-only readers
+must leave those items explicitly open for visual handoff. OCR can help locate
+content, but it is not visual verification and must not be reported as such.
 
 Each source brief must contain:
 
-- an exhaustive concept inventory with page or slide references, covering
-  procedures and conventions (statistical-table lookup, critical-value reading,
-  standard diagrams) as well as concepts and formulas, and marking passages the
-  source emphasizes with dedicated slides or repetition;
+- an exhaustive concept inventory with source locations, covering procedures
+  and conventions (including table- and diagram-reading conventions) as well
+  as concepts and formulas, and marking passages the source emphasizes with
+  dedicated space or repetition;
 - definitions, equations, assumptions, procedures, and example lessons;
 - missing, garbled, or visually dependent passages requiring verification;
 - ambiguities, internal inconsistencies, and possible source errors;
 - candidate concept-note boundaries and relationships to other topics;
 - a clear separation between source-supported claims and reader inferences.
 
-Use a shared evidence vocabulary: `[slide]` for visible source content,
-`[notes]` for speaker notes, `[recomputed]` for arithmetic derived from source
-data, and `[inference]` for reader knowledge or reconstruction. Attach source
-locations to all four categories; speaker notes still require verification.
+Use a shared evidence vocabulary: `[source]` for content present in the
+material, `[supplement]` for accompanying notes or commentary, `[recomputed]`
+for arithmetic derived from source data, and `[inference]` for reader
+knowledge or reconstruction. Attach source locations to all four categories;
+supplementary material still requires verification.
 
 For a small job, one reader may produce the brief and note map, and the
 conference may become a checklist self-review. Scale the coordination down,
@@ -123,7 +130,7 @@ Create a note map before drafting. For every proposed note, record:
 
 - its stable title and filename;
 - the concepts it owns and the concepts explicitly left to other notes;
-- source pages supporting it;
+- source locations supporting it;
 - prerequisite and downstream links;
 - unresolved claims requiring targeted reading.
 
@@ -132,8 +139,8 @@ item in each reader's inventory — concepts, procedures, and table or diagram
 conventions — is assigned to a destination note and section, or explicitly
 excluded with a recorded reason. "Accounted for" in a brief means the content
 was extracted, not that it survived synthesis. Exclude items individually, not
-by category: skipping classroom drills, for example, does not exclude the
-procedure those drills teach.
+by category: skipping repetitive worked examples, for example, does not
+exclude the procedure those examples teach.
 
 Maintain one consolidated verification queue. Every missing-content flag,
 ambiguity, and open question from every brief must be either resolved or
@@ -147,14 +154,14 @@ forgotten.
 
 ### 5. Verify targeted passages
 
-Return to the original materials for every equation, visually dense slide,
-unexpected claim, and disagreement between readers. Use practice solutions to
-check procedures, not as a substitute for definitions or assumptions.
-Recompute every worked numeric answer before reuse, including answers in
-speaker notes and handwritten keys. Validate the math by executing it in
-Python or R — a scratch script or REPL session is enough — and keep the
-script or transcript with the working notes; record source errors rather
-than propagating them or silently correcting them inside a quotation.
+Return to the original materials for every equation, visually dense passage,
+unexpected claim, and disagreement between readers. Use companion solutions or
+worked answers to check procedures, not as a substitute for definitions or
+assumptions. Recompute every worked numeric answer before reuse, including
+answers in companion notes or handwritten keys. Validate the math by executing
+it in Python or R — a scratch script or REPL session is enough — and keep the
+script or transcript with the working notes; record source errors rather than
+propagating them or silently correcting them inside a quotation.
 
 When the materials are unclear or wrong, consult an authoritative primary
 source. Verify paper metadata and DOIs before citing them. Keep a distinction
@@ -178,9 +185,9 @@ Each note should contain only the structure needed for its concept, typically:
 - references for source-specific or contested claims.
 
 Every page needs frontmatter `description`. Use neutral voice, consistent
-notation, and stable links. Remove `status: stub` only when the page contains real,
-checked content. Prefer one substantive example over a sequence of classroom
-exercises.
+notation, and stable links. Remove `status: stub` only when the page contains
+real, checked content. Prefer one substantive example over a sequence of
+similar exercises.
 
 ### 7. Integrate and validate
 
@@ -192,9 +199,9 @@ Run a concept-survival audit: trace substantive rows from each brief's
 inventory — prioritizing passages the source gave dedicated space to — into
 their assigned note sections, and confirm each appears there or has a recorded
 exclusion. Coverage against the source inventory means this trace, not merely
-that every source file was read. When the materials include a study guide or
-learning-objective list, its items can also serve as a final acceptance test
-of the notes.
+that every source item was read. When the request or the materials include an
+explicit checklist of objectives or required coverage, its items can also
+serve as a final acceptance test of the notes.
 
 Use an independent reviewer for high-impact collections when possible. Ask the
 reviewer to check both fidelity to the sources and whether the synthesis omits
