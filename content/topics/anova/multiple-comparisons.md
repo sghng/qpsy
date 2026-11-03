@@ -194,6 +194,16 @@ remaining pairs, including the two $4$-point gaps, are not distinguished.
 Those nonsignificant gaps are not evidence of equality — the HSD threshold
 is coarse relative to the sample size available.
 
+The example also shows why the size of an estimated difference alone cannot
+settle significance. The pairwise $F$ weighs the squared difference against
+$MS_W/n$, so the same $4$-point gap would clear the threshold with less
+within-group variability or larger samples, and fail it with more variability
+or fewer observations. The correction matters as well: the $4$-point gaps give
+$F = 5.33$, which exceeds the uncorrected critical value $4.35$ but not
+Tukey's $7.84$ (see the critical-value table below). Significance is a joint
+property of the difference, the error estimate, the sample size, and the
+procedure's critical value — never of the difference alone.
+
 ## The Scheffé procedure
 
 Scheffé's method applies when the interesting contrast may be *any*

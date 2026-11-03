@@ -47,6 +47,15 @@ $$
 
 giving a 95% confidence interval of $[6.97, 8.03]$ hours.
 
+**Finding $t^*$ in a t table.** A t table is read by degrees of freedom and
+tail area: locate the row $df = 15$ and the column for a two-tailed $.05$
+(equivalently, $.025$ in one tail), which gives $2.131$; the two-tailed $.01$
+column gives $2.947$ for the same df. When the exact df is absent — a
+fractional Welch df, or a value between table rows — round **down** to the next
+listed df (for example, $df = 37 \rightarrow 30$): fewer degrees of freedom
+means a larger critical value, so the interval stays conservative. Exact
+critical values from software remove the need for rounding.
+
 ## What the confidence level means
 
 The 95% refers to the **long-run success rate of the method**, not to any
@@ -102,6 +111,13 @@ reject form a one-sided bound with coverage $1 - \alpha$ — equivalently, the
 relevant endpoint of a two-sided $1 - 2\alpha$ interval constructed from the
 same standard error. Interval and test should be aligned in direction when the
 duality is used.
+
+The critical value must also match the intended coverage, not the tail
+direction of any related test. A two-sided 95% interval always uses the
+two-tailed critical value, even when the research hypothesis is one-sided:
+using the one-tailed $.05$ value $t^* = 1.753$ at $df = 15$ instead of $2.131$
+leaves $.05$ in each tail, so the resulting interval has only $90\%$ coverage,
+not $95\%$.
 
 ## Related concepts
 

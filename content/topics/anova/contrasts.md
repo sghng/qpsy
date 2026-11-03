@@ -73,6 +73,14 @@ the sum of squares, the test statistic, and the decision are unchanged. The
 standardized-effect formula below assumes the normalized scaling; other scalings
 require a corresponding adjustment, so normalization should precede interpretation.
 
+Multiplying by a *negative* constant also leaves the test unchanged. Reversing
+every sign negates $\hat\psi$ and the confidence-interval endpoints (so
+$[-7.124, -1.876]$ becomes $[1.876, 7.124]$), while the standard error,
+$SS_\psi$, and $F$ are untouched: the standard error depends on squared
+coefficients and the test on the squared estimate. Sign reversal changes only
+the direction in which the comparison is stated, so coefficients can be oriented
+to make the reported difference positive without altering the inference.
+
 ## Estimating a contrast
 
 The contrast is estimated by replacing population means with sample means:
@@ -126,7 +134,36 @@ df_R-df_F=\left[N-(a-1)\right]-(N-a)=1
 $$
 
 degree of freedom. A single-df restriction is what allows the same comparison to be
-framed as either an $F$ test or a $t$ test.
+framed as either an $F$ test or a $t$ test. The count has a direct intuition:
+under one linear restriction, $a-1$ means can still vary freely, but the
+restriction then determines the remaining mean. With
+$\tfrac12(\mu_1+\mu_2)=\mu_3$ and three groups, for instance, $\mu_1$ and
+$\mu_2$ can be anything, but $\mu_3$ is then forced to equal their average —
+only two of the three means are free.
+
+The full model here is the same full model the omnibus test uses. The full model
+is fixed by the design, not by the hypothesis: whichever comparison is tested,
+every group keeps its own mean, and the hypothesis enters only through the
+restriction. When a comparison involves two of three groups, the third group's
+mean remains free, yet its within-group variability still contributes to
+$MS_W$, so the error estimate rests on all $N-a$ residual degrees of freedom
+rather than only on the groups named in the coefficients. What separates a
+single comparison from the omnibus test is the restriction alone: the omnibus
+null ties all $a$ means together, while a contrast imposes one linear
+restriction on them. With only two groups the two restrictions coincide — tying
+two means together is tying all means together — and the single pairwise
+comparison is the omnibus test.
+
+Two consequences follow when several comparisons are made on one design. First,
+$E_F = SS_W$ is identical for every comparison, because the full model never
+changes; $E_R$ differs from comparison to comparison, because each restriction
+fits different predictions — pooling two means for a pairwise test, shifting
+several means for a complex one. Second, using all groups in $MS_W$ rather than
+only the compared groups is what makes the single-comparison test more powerful
+than an analysis of just those groups, provided variances are equal: both error
+estimates target the same population error variance, but the pooled estimate
+uses more degrees of freedom and is therefore more stable, so the resulting $F$
+varies less from sample to sample.
 
 ## Testing a contrast
 
@@ -277,10 +314,36 @@ $1(\tfrac12)+(-1)(\tfrac12)+0(-1)=0$. Under equal sample sizes, the sums of
 squares of a set of $a-1$ mutually orthogonal contrasts partition $SS_B$ —
 here $2.5+67.5=70=SS_B$ — so orthogonal contrasts decompose the omnibus test into
 independent single-df pieces, each spending its own degree of freedom on a separate
-question. This economy is the appeal of orthogonal contrasts. It is not a
-requirement for analysis: substantive questions frequently imply nonorthogonal
-contrasts, and a research question should be tested with the coefficients it
-implies rather than bent toward orthogonality.
+question.
+
+The partition also fixes the relationship among the test statistics. With a
+complete set of $a-1$ orthogonal contrasts, the omnibus $F$ is the average of
+the contrast $F$ statistics:
+
+$$
+F_{\text{omnibus}} = \frac{SS_B/(a-1)}{MS_W} = \frac{1}{a-1}\sum_{\psi} \frac{SS_\psi}{MS_W} = \frac{1}{a-1}\sum_{\psi} F_\psi.
+$$
+
+The running example gives $(0.52 + 13.97)/2 = 7.24$, exactly the omnibus $F$.
+This averaging is the arithmetic behind the omnibus test's blindness to
+localized differences: evidence concentrated in one contrast is diluted by the
+other $a-2$ contrasts in the average, which is why a focused contrast can reject
+when the omnibus test does not. This economy is the appeal of orthogonal contrasts.
+
+Nonorthogonal contrasts break the additive bookkeeping. Contrasts that share
+means count some of the same between-group variability more than once, so their
+sums of squares need not add to $SS_B$ and can exceed it. Comparing each active
+treatment separately to the control in the running example — $(1, 0, -1)$ and
+$(0, 1, -1)$, not orthogonal because $1(0)+0(1)+(-1)(-1)=1$ — gives
+$SS_\psi = 40$ and $62.5$, totaling $102.5 > SS_B = 70$. Their
+$R^2_{\text{alerting}}$ values likewise sum to $.571 + .893 = 1.464$: more than
+$100\%$ of between-group variability appears "explained" because the
+active-versus-control variation is counted twice. Association strengths can
+therefore be summed only across a complete orthogonal set, where they total
+exactly $1$; across a nonorthogonal set each proportion must be reported on its
+own. None of this is an argument against nonorthogonal contrasts: substantive
+questions frequently imply them, and a research question should be tested with
+the coefficients it implies rather than bent toward orthogonality.
 
 ## What a single contrast establishes
 

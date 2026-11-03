@@ -116,6 +116,45 @@ are not accounted for change the meaning of a p-value:
   [Confidence Intervals](/topics/foundations/confidence-intervals), and the
   design's sensitivity via [Statistical Power](/topics/foundations/statistical-power).
 
+**Exploratory and confirmatory research.** The two modes differ in when the
+hypothesis and analysis plan are fixed, and in what their tests then mean:
+
+- *Confirmatory* research specifies hypotheses, predictions, and the analysis
+  plan before examining the data, ideally by preregistration. Its p-values keep
+  their calibration because the null distribution accounts for every analytic
+  choice, and the results speak directly to the tested predictions.
+- *Exploratory* research searches data for patterns in order to generate
+  hypotheses: questions and analyses are formed or revised in contact with the
+  data, analytic flexibility is part of the method, and any p-values are
+  descriptive rather than calibrated tests. Its findings are candidates for
+  confirmation in new data, not confirmations themselves (Fife & Rodgers,
+  2022).
+
+The modes are endpoints of a continuum, not a moral dichotomy; the requirement
+is honest labeling of where each reported result lies on it.
+
+**Questionable research practices (QRPs).** Between the modes sit practices
+that quietly dress exploratory results as confirmatory ones. The recurring
+forms:
+
+- *Optional stopping*: peeking at results and continuing or stopping data
+  collection depending on significance.
+- *Outcome flexibility*: measuring several dependent variables and reporting
+  the significant one(s) as if planned.
+- *Covariate flexibility*: adding or removing covariates until the result
+  clears $.05$.
+- *Selective subsamples or exclusions*: dropping participants or conditions
+  after seeing their effects.
+- *HARKing* (hypothesizing after the results are known): presenting a
+  hypothesis formed from the results as if it were a prior prediction.
+
+Identifying a QRP in a study description means asking one question of each
+choice: was the reported hypothesis, outcome, sample, and analysis fixed before
+the data were seen, or selected because of what the data showed? Any of these
+adjusted after peeking, without disclosure, describes a QRP — and each inflates
+false positives even when the individual choice looks defensible in isolation
+(Simmons et al., 2011).
+
 ## References
 
 Simmons, J. P., Nelson, L. D., & Simonsohn, U. (2011). False-positive

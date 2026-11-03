@@ -117,6 +117,18 @@ so $z = (72 - 75)/1.6 \approx -1.88$. The lower-tail area is about $0.03$,
 which answers the inferential question through the sampling distribution of
 the mean alone.
 
+**Reading the standard normal table.** A z table converts between a $z$ score
+and an area under the standard normal curve, in two common layouts: body tables
+give the area to the *left* of $z$, tail tables the area *beyond* $z$. In a body
+table, locate the row for the first decimals of $z$ and the column for the next
+decimal: $z = 1.88$ is row $1.8$, column $.08$, with left-tail area $.9699$, so
+the upper tail is $1 - .9699 = .0301$. Negative $z$ uses symmetry: the area to
+the left of $-1.88$ equals the area to the right of $1.88$, again about $.03$.
+The reverse lookup yields critical values: a lower-tailed $\alpha = .05$
+rejection region starts at the $z$ whose left-tail area is $.05$ ($z = -1.645$),
+and a two-tailed $\alpha = .05$ region uses the values cutting off $.025$ in
+each tail ($z = \pm 1.96$).
+
 The known-$\sigma$ case is primarily pedagogical: in practice $\sigma$ is
 unknown and the standard error must be estimated, which leads to the
 $t$ distribution ([t Tests](/topics/foundations/t-tests)).

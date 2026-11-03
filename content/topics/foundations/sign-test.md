@@ -39,9 +39,25 @@ P(X = k) = \binom{N}{k} \pi^k (1-\pi)^{N-k}, \qquad k = 0, 1, \dots, N,
 $$
 
 with mean $N\pi$ and variance $N\pi(1-\pi)$; under the sign-test null these
-reduce to $N/2$ and $N/4$. Tail probabilities are obtained by summing the
-masses of the relevant counts — directly, from a binomial table, or with
-standard software.
+reduce to $N/2$ and $N/4$.
+
+The model applies when four conditions hold: a **fixed number** $N$ of trials,
+**binary outcomes** on each trial, a **constant success probability** $\pi$
+across trials, and **independent trials**. Deciding whether a random variable
+is binomial means checking these conditions against how the data arise:
+sampling until the first success violates the fixed-$N$ condition, and drawing
+without replacement from a small population of successes and failures makes
+$\pi$ change from draw to draw.
+
+Tail probabilities are obtained by summing the masses of the relevant counts —
+directly, from a binomial table, or with standard software. A binomial table is
+organized by $N$ and $\pi$ and lists either point probabilities $P(X = k)$ or
+cumulative probabilities such as $P(X \leq k)$; check which before reading.
+From cumulative entries an upper tail is $P(X \geq x) = 1 - P(X \leq x - 1)$,
+and a two-sided tail at $\pi = .5$ doubles the smaller side. Many tables list
+only $\pi \leq .5$; larger values are handled by reversing the roles of
+successes and failures, since $P(X \geq x \mid \pi)$ equals
+$P(X' \leq N - x \mid 1 - \pi)$ with $X'$ the count of failures.
 
 ## Assumptions
 
@@ -112,6 +128,9 @@ but the evidence lies in the tail:
 $$
 p_{\text{one-sided}} = P(X \geq 8) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547, \qquad p_{\text{two-sided}} = 2 \times .0547 = .1094.
 $$
+
+(The same upper tail could be read from a cumulative binomial table as
+$1 - P(X \leq 7) = 1 - 968/1024$.)
 
 At $\alpha = .05$ the two-sided critical region is $X \leq 1$ or $X \geq 9$,
 since $P(X \geq 9) = 11/1024 \approx .0108 \leq .025$ while

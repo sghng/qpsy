@@ -79,6 +79,21 @@ lower power: with $n = 25$, detecting a half-point shift ($\sigma = 10$,
 two-tailed, $\alpha = .05$) yields power near $0.06$ — barely above the Type I
 error rate.
 
+**Drawing the power diagram.** The same computation is conventionally drawn as
+two overlapping normal curves on the raw $\bar{X}$ scale: the null distribution
+centered at $\mu_0 = 75$ and the alternative centered at $\mu_{\text{real}} =
+72$, both with standard error $1.6$, with a vertical line at the boundary
+$\bar{X}_{\text{crit}} = 72.37$. Under the null curve, shade the region beyond
+the boundary in the rejection direction and label it $\alpha = .05$. Under the
+alternative curve, shade the same side of the boundary and label it power
+($.59$); the remainder of the alternative, on the retained side, is $\beta =
+.41$. The complete diagram therefore carries four labels — $\mu_0$,
+$\mu_{\text{real}}$, the shared standard error, and the critical boundary — and
+three shaded regions, $\alpha$, $\beta$, and power. It makes the determinants
+below visible: power grows as the two curves separate (larger effect), as they
+narrow (larger $n$ or smaller $\sigma$), and as the boundary moves toward the
+null center (larger $\alpha$).
+
 ## What determines power
 
 Each determinant acts by changing the overlap between the null and

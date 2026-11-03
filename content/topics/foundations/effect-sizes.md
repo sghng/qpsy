@@ -50,7 +50,11 @@ Two denominator conventions deserve explicit comment:
   correlated, so the standardizer must always be identified.
 - For **independent** designs, $s_p$ pools within-group variability; the
   pooled and Welch versions of the test share this standardizer even though
-  they differ in the standard error. Test formulas, pooled-variance
+  they differ in the standard error. Other standardizers in use include the
+  unweighted average of the two group SDs and a single group's SD (a
+  control-group standardizer, Glass's $\Delta$); they answer different
+  questions and give different values under unequal variances, so the
+  denominator must be reported. Test formulas, pooled-variance
   computation, and design selection are covered in
   [t Tests](/topics/foundations/t-tests).
 

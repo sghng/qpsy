@@ -9,6 +9,14 @@ standardize the sample mean. In practice $\sigma$ is almost never known; it
 must be estimated from the sample by $s$. Estimating the standard error
 introduces extra uncertainty, and the $t$ distribution accounts for it.
 
+The choice between $z$ and $t$ turns on whether $\sigma$ is known, **not on
+sample size**. Rules of the form "use $t$ when $n < 30$" conflate this choice
+with the central limit theorem's large-sample guidance (see
+[Sampling Distributions](/topics/foundations/sampling-distributions)): with
+$\sigma$ known, the $z$ test applies at any $n$ under its normality assumption,
+and with $\sigma$ unknown the $t$ test is the default at any $n$. Small samples
+are why the $t$ distribution needs heavier tails, not why it is chosen.
+
 ## The t statistic and its family of distributions
 
 Every $t$ statistic has the skeleton

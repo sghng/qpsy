@@ -218,8 +218,12 @@ design one:
   the denominator of $F$ — and with it the Type I error rate, usually
   inflating it, and no amount of sample size or balance repairs them.
 
-Separate-variance procedures for follow-up comparisons, analogous in spirit
-to the
+When unequal group sizes and unequal variances are a genuine concern, the
+omnibus-level remedy is **Welch's heteroscedastic ANOVA**, a separate-variance
+generalization of the two-group Welch correction that holds the Type I error
+rate near its nominal level without assuming equal variances; standard
+software provides it. Separate-variance procedures for follow-up comparisons,
+analogous in spirit to the
 [Welch correction for two groups](/topics/foundations/t-tests), are discussed
 with [linear contrasts](/topics/anova/contrasts) and
 [multiple comparisons](/topics/anova/multiple-comparisons).

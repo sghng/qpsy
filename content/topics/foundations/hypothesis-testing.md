@@ -54,6 +54,14 @@ p-value and reject when $p \leq \alpha$ (the **p-value approach**), or reject
 when the observed statistic falls in the critical region (the **critical-value
 approach**). They always agree.
 
+For a two-tailed test at $\alpha = .05$, the critical-value route splits
+$\alpha$ across the tails ($.025$ in each), but the p-value route compares the
+observed p-value to the **full** $\alpha$: the two-tailed p-value already sums
+the evidence from both tails, so nothing is halved or doubled. An observed
+$p = .03$ therefore rejects at $\alpha = .05$ even though each tail's rejection
+area is $.025$ — the two routes are two computations of the same decision, not
+two different significance levels.
+
 For **discrete** test statistics, no cutoff may achieve exactly $\alpha$, so
 the first cutoff whose tail probability does not exceed $\alpha$ is used. The
 actual level is then at or below the nominal $\alpha$, often strictly below
