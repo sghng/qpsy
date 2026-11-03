@@ -45,7 +45,9 @@ total probability under the null is at most $\alpha$, together with the
 **critical value** that marks where the region begins. Formally, with test statistic $X$ and critical
 value $x_{\text{crit}}$, the region is chosen so that
 
-$$P(X \geq x_{\text{crit}} \mid H_0) \leq \alpha$$
+$$
+P(X \geq x_{\text{crit}} \mid H_0) \leq \alpha
+$$
 
 in a one-tailed test. Two equivalent decision routes follow: compute the
 p-value and reject when $p \leq \alpha$ (the **p-value approach**), or reject
@@ -100,7 +102,9 @@ rate:
 
 Each entry is a conditional probability of a decision given reality:
 
-$$\alpha = P(\text{reject } H_0 \mid H_0 \text{ true}), \qquad \beta = P(\text{fail to reject } H_0 \mid H_0 \text{ false}).$$
+$$
+\alpha = P(\text{reject } H_0 \mid H_0 \text{ true}), \qquad \beta = P(\text{fail to reject } H_0 \mid H_0 \text{ false}).
+$$
 
 Two consequences matter in practice:
 
@@ -131,7 +135,9 @@ A coin is tossed $n = 10$ times and lands heads $8$ times. Is this evidence of
 bias towards heads? Under $H_0: \pi = .5$ the number of heads is
 $X \sim \mathrm{Binomial}(10, .5)$, and the observed tail probability is
 
-$$p = P(X \geq 8 \mid \pi = .5) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547.$$
+$$
+p = P(X \geq 8 \mid \pi = .5) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547.
+$$
 
 With $\alpha = .05$ set in advance, $p > \alpha$, so $H_0$ is not rejected:
 these data do not constitute sufficient evidence of bias towards heads. Because

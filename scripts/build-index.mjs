@@ -176,6 +176,34 @@ const graph = {
   console.log('math check: no katex-error spans in emitted HTML')
 }
 
+// Guard: every fenced $$ block in the source must render as display math
+// (katex-display) in the output. A $$ block that degrades to inline math
+// builds green but is not centered and uses text-style fractions.
+{
+  const short = []
+  for (const p of pages) {
+    const blocks = (p.body.match(/^\$\$$/gm) || []).length / 2
+    if (!blocks) continue
+    const htmlPath =
+      p.url === '/' ? 'public/index.html' : p.url.endsWith('/') ? `public${p.url}index.html` : `public${p.url}.html`
+    let html = ''
+    try {
+      html = readFileSync(htmlPath, 'utf8')
+    } catch {
+      short.push(`${p.rel}: no output html at ${htmlPath}`)
+      continue
+    }
+    const rendered = (html.match(/katex-display/g) || []).length
+    if (rendered < blocks) short.push(`${p.rel}: ${blocks} display blocks in source, ${rendered} rendered as display`)
+  }
+  if (short.length > 0) {
+    console.error('math check FAILED: display blocks not rendering as display math:')
+    for (const s of short) console.error(`  ${s}`)
+    process.exit(1)
+  }
+  console.log('math check: all display blocks render as katex-display')
+}
+
 mkdirSync('public', { recursive: true })
 writeFileSync('public/llms.txt', llms)
 writeFileSync('public/registry.json', JSON.stringify(entries, null, 2) + '\n')

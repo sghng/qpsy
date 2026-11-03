@@ -15,7 +15,9 @@ compatible with the data.
 
 Many confidence intervals for mean-like parameters have the same structure:
 
-$$CI = \text{estimate} \pm (\text{critical value}) \times SE$$
+$$
+CI = \text{estimate} \pm (\text{critical value}) \times SE
+$$
 
 where $SE$ is the standard error of the estimate — the estimated standard
 deviation of its [sampling distribution](/topics/foundations/sampling-distributions).
@@ -32,12 +34,16 @@ The interval is usually written as $[\text{lower bound}, \text{upper bound}]$.
 A sample of $n = 16$ students has mean $\bar{X} = 7.5$ hours slept with
 sample standard deviation $s = 1.0$. The estimated standard error is
 
-$$s_{\bar{X}} = \frac{s}{\sqrt{n}} = \frac{1.0}{\sqrt{16}} = 0.25.$$
+$$
+s_{\bar{X}} = \frac{s}{\sqrt{n}} = \frac{1.0}{\sqrt{16}} = 0.25.
+$$
 
 With $df = n - 1 = 15$, the two-tailed critical value for 95% confidence is
 $t^* = 2.131$, so
 
-$$7.5 \pm 2.131(0.25) = 7.5 \pm 0.53,$$
+$$
+7.5 \pm 2.131(0.25) = 7.5 \pm 0.53,
+$$
 
 giving a 95% confidence interval of $[6.97, 8.03]$ hours.
 
@@ -67,7 +73,9 @@ of uncertainty around the estimate, not just whether a threshold was crossed.
 
 The width of a confidence interval is twice the margin of error:
 
-$$\text{width} = 2 \times (\text{critical value}) \times SE.$$
+$$
+\text{width} = 2 \times (\text{critical value}) \times SE.
+$$
 
 Because $SE$ shrinks with the square root of the sample size, larger samples
 produce narrower intervals at a fixed confidence level — more data means less

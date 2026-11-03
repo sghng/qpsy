@@ -24,13 +24,17 @@ generated. It has three components: parameters that must be estimated, a
 predicted value $\hat Y_{ij}$ for each observation, and unexplained variability.
 For each participant the observed score decomposes as
 
-$$Y_{ij} = \hat Y_{ij} + e_{ij},$$
+$$
+Y_{ij} = \hat Y_{ij} + e_{ij},
+$$
 
 where $Y_{ij}$ is the observed score, $\hat Y_{ij}$ is the model's prediction,
 and $e_{ij} = Y_{ij} - \hat Y_{ij}$ is the residual, or error. A model's fit —
 its **adequacy** — is measured by its total squared error:
 
-$$E = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \hat Y_{ij}\right)^2,$$
+$$
+E = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \hat Y_{ij}\right)^2,
+$$
 
 with $a$ groups and $n_j$ observations in group $j$. Squaring keeps positive
 and negative residuals from canceling and penalizes large misses more than
@@ -78,7 +82,9 @@ worse, so the restricted model's error is always at least the full model's.
 
 Substituting each model's least-squares predictions gives its error:
 
-$$E_F = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y_j\right)^2, \qquad E_R = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y\right)^2,$$
+$$
+E_F = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y_j\right)^2, \qquad E_R = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y\right)^2,
+$$
 
 the full-model error $E_F$ (deviations from group means) and the
 restricted-model error $E_R$ (deviations from the grand mean), with
@@ -95,7 +101,9 @@ but noise. A good model balances two desidera: it should fit the data well
 Simplicity is indexed by counting parameters and translating the count into
 **residual degrees of freedom**:
 
-$$df = N - \#\{\text{estimated mean parameters}\},$$
+$$
+df = N - \#\{\text{estimated mean parameters}\},
+$$
 
 where $N = \sum_j n_j$ is the total sample size. The full model estimates $a$
 means, so $df_F = N - a$; the restricted model estimates one mean, so
@@ -110,7 +118,9 @@ Raw error differences favor the full model; parameter counts favor the
 restricted model. The $F$ ratio puts both on common ground by scaling each
 error quantity by its degrees of freedom:
 
-$$F = \frac{\left(E_R - E_F\right)/\left(df_R - df_F\right)}{E_F/df_F}.$$
+$$
+F = \frac{\left(E_R - E_F\right)/\left(df_R - df_F\right)}{E_F/df_F}.
+$$
 
 The numerator is the increase in error **per additional parameter** the full
 model estimates (equivalently, per residual degree of freedom lost); the
@@ -154,7 +164,9 @@ derivation, assumptions, and summary-table conventions appear in
 Adequacy is often summarized as a proportion. Two denominators are in use, and
 they measure different things:
 
-$$PIE = \frac{E_R - E_F}{E_F}, \qquad PRE = \frac{E_R - E_F}{E_R}.$$
+$$
+PIE = \frac{E_R - E_F}{E_F}, \qquad PRE = \frac{E_R - E_F}{E_R}.
+$$
 
 **Proportional increase in error** (PIE) expresses the restriction's cost as a
 multiple of the full model's error; it can exceed 1 — an error increase of
@@ -180,7 +192,9 @@ $10$; the group squared errors are $29$, $34$, and $65$, so $E_R = 128$. The
 restriction increases error by $E_R - E_F = 70$ while removing $a - 1 = 2$
 parameters ($df_R = 14$, $df_F = 12$):
 
-$$PIE = \frac{70}{58} = 1.2069, \qquad PRE = \eta^2 = \frac{70}{128} = 0.5469, \qquad F = \frac{70/2}{58/12} = \frac{35}{4.83} = 7.24.$$
+$$
+PIE = \frac{70}{58} = 1.2069, \qquad PRE = \eta^2 = \frac{70}{128} = 0.5469, \qquad F = \frac{70/2}{58/12} = \frac{35}{4.83} = 7.24.
+$$
 
 The $F$ of 7.24 is the identical omnibus statistic computed from the classic
 summary table; its degrees of freedom are $(a-1, N-a) = (2, 12)$. In this

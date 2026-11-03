@@ -32,7 +32,9 @@ distribution of the mean is the workhorse of inference for location.
 For random samples of size $n$ from a population with mean $\mu$ and variance
 $\sigma^2$:
 
-$$E(\bar{X}) = \mu, \qquad \mathrm{Var}(\bar{X}) = \frac{\sigma^2}{n}, \qquad \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$$
+$$
+E(\bar{X}) = \mu, \qquad \mathrm{Var}(\bar{X}) = \frac{\sigma^2}{n}, \qquad \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}
+$$
 
 where $E(\bar{X})$ is the mean of the sampling distribution of $\bar{X}$ and
 $\sigma_{\bar{X}}$ is its standard deviation. Two facts deserve emphasis:
@@ -43,7 +45,9 @@ $\sigma_{\bar{X}}$ is its standard deviation. Two facts deserve emphasis:
 - The standard deviation of the sampling distribution of the mean has a
   special name: the **standard error of the mean** (SEM),
 
-$$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt n}.$$
+$$
+\sigma_{\bar{X}} = \frac{\sigma}{\sqrt n}.
+$$
 
 It shrinks with the square root of the sample size: quadrupling $n$ halves the
 standard error. This is why the sampling distribution of the mean is visibly
@@ -94,7 +98,9 @@ When $\sigma$ is known and the sampling distribution of the mean is (at least
 approximately) normal, a sample mean can be standardized against its null
 sampling distribution:
 
-$$z = \frac{\bar{X} - \mu_0}{\sigma_{\bar{X}}} = \frac{\bar{X} - \mu_0}{\sigma / \sqrt n},$$
+$$
+z = \frac{\bar{X} - \mu_0}{\sigma_{\bar{X}}} = \frac{\bar{X} - \mu_0}{\sigma / \sqrt n},
+$$
 
 where $\mu_0$ is the hypothesized population mean. The denominator is the
 standard error, not the sample standard deviation — the statistic measures how

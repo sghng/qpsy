@@ -8,7 +8,9 @@ Power is the probability that a test rejects the null hypothesis when the
 null is false. More precisely, because a false null can be false in many
 ways, power is defined **relative to a specified alternative**:
 
-$$\text{Power} = 1 - \beta = P(\text{reject } H_0 \mid H_1 \text{ with a specific effect}).$$
+$$
+\text{Power} = 1 - \beta = P(\text{reject } H_0 \mid H_1 \text{ with a specific effect}).
+$$
 
 Here $\beta$ is the probability of a Type II error — failing to detect an
 effect that exists. The conditional definitions of $\alpha$ and $\beta$ and
@@ -39,14 +41,18 @@ $\mu_0$ and the alternative centered at the assumed true value $\mu_{\text{real}
    direction, obtain the critical value $z_{\text{crit}}$, convert it to the
    scale of the sample mean,
 
-$$\bar{X}_{\text{crit}} = \mu_0 + z_{\text{crit}} \, \sigma_{\bar{X}},$$
+$$
+\bar{X}_{\text{crit}} = \mu_0 + z_{\text{crit}} \, \sigma_{\bar{X}},
+$$
 
 and reject when $\bar{X}$ falls in the designated tail beyond that boundary.
 
 2. **Evaluate that region under the alternative.** Re-standardize the same
    boundary using the alternative mean,
 
-$$z = \frac{\bar{X}_{\text{crit}} - \mu_{\text{real}}}{\sigma_{\bar{X}}},$$
+$$
+z = \frac{\bar{X}_{\text{crit}} - \mu_{\text{real}}}{\sigma_{\bar{X}}},
+$$
 
 and take the corresponding tail area under the alternative distribution. That
 area is the power; its complement is $\beta$.
@@ -63,7 +69,9 @@ $\bar{X}_{\text{crit}} = 75 - 1.645 \times 1.6 = 72.37$. If the true mean is
 $\mu_{\text{real}} = 72$, then
 $z = (72.37 - 72)/1.6 \approx 0.23$, giving
 
-$$\text{power} = P(Z \leq 0.23) \approx 0.59.$$
+$$
+\text{power} = P(Z \leq 0.23) \approx 0.59.
+$$
 
 A true 3-point shortfall would be detected only about 59% of the time with
 this design; $\beta \approx 0.41$. Small assumed effects give dramatically

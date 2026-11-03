@@ -12,7 +12,9 @@ data are, measured as a probability under the null hypothesis.
 Let $T$ be a test statistic whose null distribution is known when $H_0$ holds,
 and let $t_{\text{obs}}$ be its observed value. The p-value is
 
-$$p = P\big(T \text{ at least as extreme as } t_{\text{obs}} \;\big|\; H_0\big).$$
+$$
+p = P\big(T \text{ at least as extreme as } t_{\text{obs}} \;\big|\; H_0\big).
+$$
 
 In words: the probability of obtaining a result as extreme as, or more extreme
 than, the one observed **if the null hypothesis is true**. Three features of

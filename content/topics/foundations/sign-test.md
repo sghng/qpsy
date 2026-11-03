@@ -14,13 +14,17 @@ binomial distribution with success probability one-half.
 
 For each pair $(Y_{i1}, Y_{i2})$, compute the difference and record its sign:
 
-$$D_i = Y_{i2} - Y_{i1}, \qquad S_i = \begin{cases} +1 & D_i > 0 \\ -1 & D_i < 0 \end{cases}$$
+$$
+D_i = Y_{i2} - Y_{i1}, \qquad S_i = \begin{cases} +1 & D_i > 0 \\ -1 & D_i < 0 \end{cases}
+$$
 
 The test statistic $X$ is the count of one chosen sign — say the number of
 positive differences. If the null hypothesis of no systematic change is true,
 positive and negative differences are equally likely, so
 
-$$X \sim \mathrm{Binomial}(N, \tfrac{1}{2}),$$
+$$
+X \sim \mathrm{Binomial}(N, \tfrac{1}{2}),
+$$
 
 where $N$ is the number of pairs with a nonzero difference. Every probability
 in the test is an exact binomial tail probability; no normal approximation is
@@ -30,7 +34,9 @@ involved.
 
 For $X \sim \mathrm{Binomial}(N, \pi)$, the probability mass function is
 
-$$P(X = k) = \binom{N}{k} \pi^k (1-\pi)^{N-k}, \qquad k = 0, 1, \dots, N,$$
+$$
+P(X = k) = \binom{N}{k} \pi^k (1-\pi)^{N-k}, \qquad k = 0, 1, \dots, N,
+$$
 
 with mean $N\pi$ and variance $N\pi(1-\pi)$; under the sign-test null these
 reduce to $N/2$ and $N/4$. Tail probabilities are obtained by summing the
@@ -97,11 +103,15 @@ for evidence of improvement is the upper tail.
 Under $H_0: \pi = \tfrac{1}{2}$, $X \sim \mathrm{Binomial}(10, \tfrac{1}{2})$.
 The point probability of the observed count is
 
-$$P(X = 8) = \binom{10}{8}\Big(\tfrac{1}{2}\Big)^{10} = \frac{45}{1024} \approx .0439,$$
+$$
+P(X = 8) = \binom{10}{8}\Big(\tfrac{1}{2}\Big)^{10} = \frac{45}{1024} \approx .0439,
+$$
 
 but the evidence lies in the tail:
 
-$$p_{\text{one-sided}} = P(X \geq 8) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547, \qquad p_{\text{two-sided}} = 2 \times .0547 = .1094.$$
+$$
+p_{\text{one-sided}} = P(X \geq 8) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547, \qquad p_{\text{two-sided}} = 2 \times .0547 = .1094.
+$$
 
 At $\alpha = .05$ the two-sided critical region is $X \leq 1$ or $X \geq 9$,
 since $P(X \geq 9) = 11/1024 \approx .0108 \leq .025$ while

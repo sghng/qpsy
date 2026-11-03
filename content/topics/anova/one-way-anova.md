@@ -20,7 +20,9 @@ relative to the second.
 For $a$ independent groups with population means $\mu_1, \ldots, \mu_a$, the
 hypotheses are
 
-$$H_0\colon \mu_1 = \mu_2 = \cdots = \mu_a, \qquad H_1\colon \text{the means are not all equal.}$$
+$$
+H_0\colon \mu_1 = \mu_2 = \cdots = \mu_a, \qquad H_1\colon \text{the means are not all equal.}
+$$
 
 The alternative is stated in words because it is not one specific pattern: it
 is satisfied when a single mean departs from the rest, when the means split
@@ -35,7 +37,9 @@ Let $Y_{ij}$ denote observation $i$ in group $j$, with $n_j$ observations in
 group $j$ and $N = \sum_j n_j$ in total. Write $\bar{Y}_j$ for the mean of
 group $j$ and $\bar{Y}$ for the grand mean, the mean of all $N$ observations:
 
-$$\bar{Y} = \frac{\sum_j n_j \bar{Y}_j}{N}.$$
+$$
+\bar{Y} = \frac{\sum_j n_j \bar{Y}_j}{N}.
+$$
 
 With equal group sizes the grand mean is the ordinary average of the group
 means; with unequal sizes it is weighted toward the larger groups.
@@ -43,7 +47,9 @@ means; with unequal sizes it is weighted toward the larger groups.
 Each observation's deviation from the grand mean decomposes exactly into a
 between-group part and a within-group part:
 
-$$Y_{ij} - \bar{Y} = (\bar{Y}_j - \bar{Y}) + (Y_{ij} - \bar{Y}_j),$$
+$$
+Y_{ij} - \bar{Y} = (\bar{Y}_j - \bar{Y}) + (Y_{ij} - \bar{Y}_j),
+$$
 
 which pairs the two sources of variability the test compares:
 
@@ -66,7 +72,9 @@ within-group variance exceeds what chance alone produces.
 Squaring and summing the deviations over all observations yields the three
 sums of squares:
 
-$$SS_W = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2, \qquad SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2, \qquad SS_T = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y})^2,$$
+$$
+SS_W = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2, \qquad SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2, \qquad SS_T = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y})^2,
+$$
 
 with $SS_W$ pooling the squared deviations within each group and $SS_B$
 weighting each squared deviation of a group mean by that group's size — which
@@ -74,7 +82,9 @@ is why $SS_B$ is not simply the variance of the group means. The deviations
 are not addable observation by observation once squared; additivity is
 recovered after summing, and the partition is exact:
 
-$$SS_T = SS_B + SS_W.$$
+$$
+SS_T = SS_B + SS_W.
+$$
 
 When only $SS_T$ and $SS_B$ are convenient to compute, $SS_W = SS_T - SS_B$
 follows from the partition.
@@ -84,12 +94,16 @@ follows from the partition.
 Each sum of squares carries its own degrees of freedom, partitioned in the
 same way:
 
-$$df_B = a - 1, \qquad df_W = N - a, \qquad df_T = N - 1, \qquad df_T = df_B + df_W.$$
+$$
+df_B = a - 1, \qquad df_W = N - a, \qquad df_T = N - 1, \qquad df_T = df_B + df_W.
+$$
 
 A mean square is a variance estimate — the term ANOVA uses for a sum of
 squares divided by its degrees of freedom:
 
-$$MS_B = \frac{SS_B}{df_B}, \qquad MS_W = \frac{SS_W}{df_W}.$$
+$$
+MS_B = \frac{SS_B}{df_B}, \qquad MS_W = \frac{SS_W}{df_W}.
+$$
 
 Sums of squares and degrees of freedom are additive across the two sources;
 mean squares are not. Under the null hypothesis both mean squares estimate
@@ -102,7 +116,9 @@ only the within-population variance.
 
 The test statistic is the ratio of the two variance estimates,
 
-$$F = \frac{MS_B}{MS_W},$$
+$$
+F = \frac{MS_B}{MS_W},
+$$
 
 which under the null hypothesis follows an $F$ distribution with $df_B = a-1$
 and $df_W = N-a$ degrees of freedom. $F$ ratios cannot be negative and their
@@ -138,7 +154,9 @@ variation against which group differences are judged.
 A one-way ANOVA does not require the raw data. Given the group sizes $n_j$,
 sample means $\bar{Y}_j$, and sample variances $s_j^2$ for each group:
 
-$$\bar{Y} = \frac{\sum_j n_j \bar{Y}_j}{N}, \qquad SS_W = \sum_{j=1}^{a} (n_j - 1) s_j^2, \qquad SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2.$$
+$$
+\bar{Y} = \frac{\sum_j n_j \bar{Y}_j}{N}, \qquad SS_W = \sum_{j=1}^{a} (n_j - 1) s_j^2, \qquad SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2.
+$$
 
 The degrees of freedom, mean squares, and $F$ ratio then follow exactly as
 above. This route reproduces published analyses from the summary statistics
@@ -152,15 +170,21 @@ $9$, $8$, and $13$, and sample variances $6.0$, $3.5$, and $5.0$.
 
 The grand mean is $\bar{Y} = 5(9 + 8 + 13)/15 = 10$. The sums of squares:
 
-$$SS_W = 4(6.0) + 4(3.5) + 4(5.0) = 24 + 14 + 20 = 58,$$
-$$SS_B = 5(9-10)^2 + 5(8-10)^2 + 5(13-10)^2 = 5 + 20 + 45 = 70,$$
+$$
+SS_W = 4(6.0) + 4(3.5) + 4(5.0) = 24 + 14 + 20 = 58,
+$$
+$$
+SS_B = 5(9-10)^2 + 5(8-10)^2 + 5(13-10)^2 = 5 + 20 + 45 = 70,
+$$
 
 so $SS_T = 70 + 58 = 128$, in agreement with summing all 15 squared
 deviations from the grand mean. Degrees of freedom are $a - 1 = 2$,
 $N - a = 12$, and $N - 1 = 14$. The mean squares are $MS_B = 70/2 = 35.00$
 and $MS_W = 58/12 = 4.83$, giving
 
-$$F = \frac{35.00}{4.83} = 7.24,$$
+$$
+F = \frac{35.00}{4.83} = 7.24,
+$$
 
 with $p = P(F_{2,12} \geq 7.24) = .00866$. The statistic far exceeds the
 $\alpha = .05$ critical value of $3.89$, so the null hypothesis of equal

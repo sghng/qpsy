@@ -50,11 +50,19 @@ One markdown file per paper under `registry/`, filename equal to `key`.
 
 - Frontmatter `description` is maintained on every page; it feeds `llms.txt`,
   popovers, and the properties panel (Obsidian convention).
-- Math: `$...$` inline, `$$...$$` display. Display blocks MUST open and close
-  on a single line — a `$$` block spanning lines breaks the math tokenizer
-  whenever any inline `$...$` appears earlier in the file, and everything
-  after it stops rendering. Builds fail on any `katex-error` in the output
-  (checked by scripts/build-index.mjs).
+- Math: `$...$` inline, display math in FENCED form — `$$` alone on its own
+  line, content, then `$$` alone on its own line:
+  ```
+  $$
+  \psi=\sum_{j=1}^{a} c_j\,\mu_j
+  $$
+  ```
+  Single-line `$$...$$` silently renders as INLINE math (not centered,
+  text-style fractions), and content on the opener line breaks `$` pairing
+  whenever any inline `$...$` appears earlier in the file. Obsidian accepts
+  both looser forms; this pipeline does not. Builds fail on any
+  `katex-error` in the output and on any display block that fails to render
+  as `katex-display` (checked by scripts/build-index.mjs).
 - Internal links: wikilinks (`[[page]]`) are the vault-native form; absolute
   Markdown links (`/topics/foundations/probability`) also resolve. Folder
   pages link with a trailing slash (`/topics/anova/`).

@@ -43,7 +43,9 @@ the study was designed to ask.
 A **contrast** is a linear combination of population means whose coefficients sum
 to zero:
 
-$$\psi=\sum_{j=1}^{a} c_j\,\mu_j, \qquad \sum_{j=1}^{a} c_j=0.$$
+$$
+\psi=\sum_{j=1}^{a} c_j\,\mu_j, \qquad \sum_{j=1}^{a} c_j=0.
+$$
 
 The zero-sum condition is what makes $\psi$ a *comparison*: it guarantees that a
 constant added to every mean leaves $\psi$ unchanged, so $\psi$ reflects differences
@@ -75,17 +77,23 @@ require a corresponding adjustment, so normalization should precede interpretati
 
 The contrast is estimated by replacing population means with sample means:
 
-$$\hat\psi=\sum_{j=1}^{a} c_j\,\bar Y_j,$$
+$$
+\hat\psi=\sum_{j=1}^{a} c_j\,\bar Y_j,
+$$
 
 with standard error, under the equal-variance assumption,
 
-$$SE(\hat\psi)=\sqrt{MS_W\sum_{j=1}^{a}\frac{c_j^2}{n_j}}.$$
+$$
+SE(\hat\psi)=\sqrt{MS_W\sum_{j=1}^{a}\frac{c_j^2}{n_j}}.
+$$
 
 A running example uses three groups with $n_j=5$: two active treatments with means
 $9$ and $8$, and a control with mean $13$, with $MS_W=58/12=4.833$ and $SS_B=70$.
 For the comparison of the average active-treatment mean to the control mean,
 
-$$c=\left(\tfrac12,\tfrac12,-1\right),\qquad \hat\psi=\tfrac12(9)+\tfrac12(8)-13=-4.5,$$
+$$
+c=\left(\tfrac12,\tfrac12,-1\right),\qquad \hat\psi=\tfrac12(9)+\tfrac12(8)-13=-4.5,
+$$
 
 so the average of the two active-treatment means is estimated to fall $4.5$ points
 below the control mean. For the pairwise comparison of the two active treatments,
@@ -113,7 +121,9 @@ freedom: the full model estimates $a$ means, so $df_F=N-a$, and one linear
 restriction removes exactly one parameter, so $df_R=N-(a-1)$ and the numerator of
 the test always has
 
-$$df_R-df_F=\left[N-(a-1)\right]-(N-a)=1$$
+$$
+df_R-df_F=\left[N-(a-1)\right]-(N-a)=1
+$$
 
 degree of freedom. A single-df restriction is what allows the same comparison to be
 framed as either an $F$ test or a $t$ test.
@@ -122,11 +132,15 @@ framed as either an $F$ test or a $t$ test.
 
 The error increase has a closed form that avoids fitting the restricted model:
 
-$$SS_\psi=E_R-E_F=\frac{\hat\psi^2}{\sum_j c_j^2/n_j},\qquad F=\frac{SS_\psi}{MS_W}=\frac{\hat\psi^2}{MS_W\sum_j c_j^2/n_j},$$
+$$
+SS_\psi=E_R-E_F=\frac{\hat\psi^2}{\sum_j c_j^2/n_j},\qquad F=\frac{SS_\psi}{MS_W}=\frac{\hat\psi^2}{MS_W\sum_j c_j^2/n_j},
+$$
 
 with $1$ and $N-a$ degrees of freedom, and equivalently
 
-$$t=\frac{\hat\psi}{SE(\hat\psi)}, \qquad F=t^2.$$
+$$
+t=\frac{\hat\psi}{SE(\hat\psi)}, \qquad F=t^2.
+$$
 
 With only two groups, a pairwise contrast reduces to the pooled independent-samples
 $t$ test ([t Tests](/topics/foundations/t-tests)). With more groups, the same form
@@ -135,7 +149,9 @@ weighting of the means.
 
 In the running example, $\sum_j c_j^2/n_j=\tfrac14/5+\tfrac14/5+1/5=.3$, so
 
-$$SS_\psi=\frac{(-4.5)^2}{.3}=67.5,\qquad F=\frac{67.5}{58/12}=13.97,\qquad t=\frac{-4.5}{1.204}=-3.737.$$
+$$
+SS_\psi=\frac{(-4.5)^2}{.3}=67.5,\qquad F=\frac{67.5}{58/12}=13.97,\qquad t=\frac{-4.5}{1.204}=-3.737.
+$$
 
 The $F$ of $13.97$ exceeds the critical value $F_{.05}(1,12)=4.75$: the data provide evidence
 that the average of the two active-treatment means differs from the control mean.
@@ -148,12 +164,16 @@ value.
 A $95\%$ confidence interval for $\psi$ follows the estimate-plus-minus-margin
 pattern ([Confidence Intervals](/topics/foundations/confidence-intervals)):
 
-$$\hat\psi \pm t^*_{.975,\,N-a}\,SE(\hat\psi) \;=\; \hat\psi \pm \sqrt{F_{.05}(1,N-a)}\;SE(\hat\psi),$$
+$$
+\hat\psi \pm t^*_{.975,\,N-a}\,SE(\hat\psi) \;=\; \hat\psi \pm \sqrt{F_{.05}(1,N-a)}\;SE(\hat\psi),
+$$
 
 where the two-tailed $t$ critical value and the square root of the $F$ critical
 value coincide. For the complex contrast,
 
-$$-4.5\pm 2.179(1.204)=[-7.124,\,-1.876],$$
+$$
+-4.5\pm 2.179(1.204)=[-7.124,\,-1.876],
+$$
 
 an interval of average active-treatment means $1.9$ to $7.1$ points below the
 control mean. The interval contains zero exactly when the test retains $H_0$, but
@@ -170,7 +190,9 @@ $\sum_j c_j^2/n_j$ term: the same contrast estimated from differently sized grou
 has a different standard error and therefore a different test statistic. With
 $c=(\tfrac12,\tfrac12,-1)$ and group sizes $5$, $10$, and $5$,
 
-$$\sum_j\frac{c_j^2}{n_j}=\frac{.25}{5}+\frac{.25}{10}+\frac{1}{5}=.275,$$
+$$
+\sum_j\frac{c_j^2}{n_j}=\frac{.25}{5}+\frac{.25}{10}+\frac{1}{5}=.275,
+$$
 
 smaller than the equal-$n$ value $.3$. Adding observations to any group with a
 nonzero coefficient can only shrink the standard error, and the shrinkage is
@@ -194,7 +216,9 @@ standard error and costs power.
 When population variances may differ, each group's variance can be used separately,
 generalizing Welch's approach ([t Tests](/topics/foundations/t-tests)):
 
-$$F=\frac{\hat\psi^2}{\sum_j c_j^2\,s_j^2/n_j},$$
+$$
+F=\frac{\hat\psi^2}{\sum_j c_j^2\,s_j^2/n_j},
+$$
 
 with approximate (Satterthwaite) denominator degrees of freedom best obtained from
 software. Only groups with nonzero coefficients contribute, so groups excluded from
@@ -205,7 +229,9 @@ the comparison no longer contaminate the standard error.
 **Standardized difference.** With normalized coefficients, the contrast can be
 expressed in within-group standard deviation units:
 
-$$d=\frac{\hat\psi}{\sqrt{MS_W}}.$$
+$$
+d=\frac{\hat\psi}{\sqrt{MS_W}}.
+$$
 
 For the complex contrast, $d=-4.5/\sqrt{4.833}=-2.05$: the average active-treatment
 mean falls about two within-group standard deviations below the control mean. The
@@ -215,7 +241,9 @@ data would give $d=-8.2$, which no longer measures an average mean difference.
 **Association strength.** Two proportions locate the contrast in the overall
 variance decomposition:
 
-$$R^2_{\text{alerting}}=\frac{SS_\psi}{SS_B}, \qquad R^2_{\text{effect size}}=\frac{SS_\psi}{SS_T}.$$
+$$
+R^2_{\text{alerting}}=\frac{SS_\psi}{SS_B}, \qquad R^2_{\text{effect size}}=\frac{SS_\psi}{SS_T}.
+$$
 
 The alerting proportion measures how much of the *between-group* variability the
 contrast captures; the effect-size proportion uses the *total* variability, adding
@@ -240,7 +268,9 @@ Two contrasts are **orthogonal** when they carry nonoverlapping information abou
 the mean differences. The check multiplies the two coefficient vectors element by
 element within each group and sums:
 
-$$\sum_j c_{1j}c_{2j}=0 \quad\text{(equal } n_j\text{)}, \qquad \sum_j \frac{c_{1j}c_{2j}}{n_j}=0 \quad\text{(unequal } n_j\text{)}.$$
+$$
+\sum_j c_{1j}c_{2j}=0 \quad\text{(equal } n_j\text{)}, \qquad \sum_j \frac{c_{1j}c_{2j}}{n_j}=0 \quad\text{(unequal } n_j\text{)}.
+$$
 
 In the running example the pairwise and complex contrasts are orthogonal:
 $1(\tfrac12)+(-1)(\tfrac12)+0(-1)=0$. Under equal sample sizes, the sums of

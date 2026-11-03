@@ -13,7 +13,9 @@ introduces extra uncertainty, and the $t$ distribution accounts for it.
 
 Every $t$ statistic has the skeleton
 
-$$t = \frac{\text{sample estimate} - \text{null value}}{\text{estimated standard error}},$$
+$$
+t = \frac{\text{sample estimate} - \text{null value}}{\text{estimated standard error}},
+$$
 
 which measures how many standard errors the estimate lies from the value
 specified under the null hypothesis. For the mean-based tests below under
@@ -41,7 +43,9 @@ test), and $\bar{X}_1, \bar{X}_2$ are the two group means.
 
 ## One-sample t test
 
-$$t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}, \qquad df = n - 1,$$
+$$
+t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}, \qquad df = n - 1,
+$$
 
 where $\bar{X}$ is the sample mean, $\mu_0$ the hypothesized population mean,
 $s$ the sample standard deviation, and $s/\sqrt{n}$ the estimated standard
@@ -59,12 +63,16 @@ If the two populations have the same variance (*homogeneity of variances*), a
 weighted average of the sample variances estimates it better than either
 alone:
 
-$$s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2},$$
+$$
+s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2},
+$$
 
 with $s_1^2, s_2^2$ the group sample variances. The standard error of the mean
 difference and the test statistic are
 
-$$SE_{pooled} = \sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}, \qquad t = \frac{\bar{X}_1 - \bar{X}_2}{SE_{pooled}}, \qquad df = n_1 + n_2 - 2.$$
+$$
+SE_{pooled} = \sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}, \qquad t = \frac{\bar{X}_1 - \bar{X}_2}{SE_{pooled}}, \qquad df = n_1 + n_2 - 2.
+$$
 
 ### Welch's version
 
@@ -73,11 +81,15 @@ when the larger variance attaches to the larger group, which inflates
 $s_p^2$ and the standard error with it. Welch's test estimates each group's
 variance separately:
 
-$$SE_{Welch} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},$$
+$$
+SE_{Welch} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},
+$$
 
 and adjusts the degrees of freedom with the Satterthwaite approximation:
 
-$$df = \frac{\left( \dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2} \right)^2} {\dfrac{1}{n_1 - 1}\left( \dfrac{s_1^2}{n_1} \right)^2 + \dfrac{1}{n_2 - 1}\left( \dfrac{s_2^2}{n_2} \right)^2},$$
+$$
+df = \frac{\left( \dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2} \right)^2} {\dfrac{1}{n_1 - 1}\left( \dfrac{s_1^2}{n_1} \right)^2 + \dfrac{1}{n_2 - 1}\left( \dfrac{s_2^2}{n_2} \right)^2},
+$$
 
 which is fractional and is best computed by software. When $n_1 = n_2$ the two
 standard errors coincide even under unequal variances, because the pooled
@@ -104,7 +116,9 @@ of every difference and of the mean difference $\bar{D}$. Writing $D_i = X_{2i}
 $\mu_D$ for the population mean of the differences, the paired test is a
 one-sample $t$ test on the differences:
 
-$$t = \frac{\bar{D} - \mu_D}{s_D / \sqrt{n}} \quad \xrightarrow{\mu_D = 0} \quad t = \frac{\bar{D}}{s_D / \sqrt{n}}, \qquad df = n - 1,$$
+$$
+t = \frac{\bar{D} - \mu_D}{s_D / \sqrt{n}} \quad \xrightarrow{\mu_D = 0} \quad t = \frac{\bar{D}}{s_D / \sqrt{n}}, \qquad df = n - 1,
+$$
 
 where $s_D$ is the standard deviation of the difference scores and $n$ is the
 number of pairs. Because stable individual differences cancel inside each

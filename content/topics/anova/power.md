@@ -36,11 +36,15 @@ decreases it.
 Power requires a specification of how far the null is false. For fixed-effects
 one-way ANOVA the omnibus standardized effect size is **Cohen's $f$**:
 
-$$f = \frac{\sigma_m}{\sigma_\varepsilon},$$
+$$
+f = \frac{\sigma_m}{\sigma_\varepsilon},
+$$
 
 where $\sigma_m$ is the standard deviation of the population means,
 
-$$\sigma_m = \sqrt{\frac{\sum_{j=1}^{a}\left(\mu_j - \mu\right)^2}{a}},$$
+$$
+\sigma_m = \sqrt{\frac{\sum_{j=1}^{a}\left(\mu_j - \mu\right)^2}{a}},
+$$
 
 with $\mu$ the average of the $a$ population means, and $\sigma_\varepsilon$ is
 the common within-group population standard deviation. Cohen's $f$ is a
@@ -60,7 +64,9 @@ routine or implausible in another.
 
 For the equal-$n$ one-way design, the noncentrality parameter is
 
-$$\lambda = N f^2,$$
+$$
+\lambda = N f^2,
+$$
 
 with $N$ the total sample size. Because $f$ already combines the spread of the
 population means with the within-group standard deviation, $\lambda$ folds
@@ -87,7 +93,9 @@ region under two distributions:
    $\lambda$ and the same degrees of freedom. Power is the probability of
    observing $F \geq F_{\text{crit}}$ under that shifted distribution:
 
-$$\text{Power} = P\left(F'_{df_1, df_2}(\lambda) \geq F_{\text{crit}}\right).$$
+$$
+\text{Power} = P\left(F'_{df_1, df_2}(\lambda) \geq F_{\text{crit}}\right).
+$$
 
 A cumulative-distribution calculator returns the area to the *left* of
 $F_{\text{crit}}$, so power is obtained as one minus that area. In practice,
@@ -103,15 +111,21 @@ deviation is $\sigma_\varepsilon = 20$, and the plan is $n = 10$ per group
 
 The average of the population means is $\mu = 50$, so
 
-$$\sigma_m = \sqrt{\frac{(40-50)^2 + (50-50)^2 + (60-50)^2}{3}} = \sqrt{\frac{200}{3}} = 8.16497,$$
+$$
+\sigma_m = \sqrt{\frac{(40-50)^2 + (50-50)^2 + (60-50)^2}{3}} = \sqrt{\frac{200}{3}} = 8.16497,
+$$
 
-$$f = \frac{8.16497}{20} = 0.408248, \qquad \lambda = N f^2 = 30 \times 0.408248^2 = 5.$$
+$$
+f = \frac{8.16497}{20} = 0.408248, \qquad \lambda = N f^2 = 30 \times 0.408248^2 = 5.
+$$
 
 With $df_1 = a - 1 = 2$ and $df_2 = N - a = 27$, the central $F(2, 27)$
 distribution gives $F_{\text{crit}} = 3.35413$. The power is the noncentral-$F$
 tail area:
 
-$$\text{Power} = P\left(F'_{2,27}(\lambda = 5) \geq 3.35413\right) = 0.457992 \approx .458.$$
+$$
+\text{Power} = P\left(F'_{2,27}(\lambda = 5) \geq 3.35413\right) = 0.457992 \approx .458.
+$$
 
 A study of this size would detect the specified configuration of means fewer
 than half of the time. Note that $f = 0.408$ sits at the conventional "large"

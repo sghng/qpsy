@@ -33,13 +33,17 @@ competing summaries.
 
 Formulas below use sigma notation, in which
 
-$$\sum_{i=1}^{n} X_i = X_1 + X_2 + \cdots + X_n$$
+$$
+\sum_{i=1}^{n} X_i = X_1 + X_2 + \cdots + X_n
+$$
 
 sums the argument $X_i$ over indices $i = 1$ through $n$. The index limits
 may be omitted when the sum runs over all observed values. Two distinct
 quantities are easily confused and are not equal in general:
 
-$$\sum X_i^2 \neq \left(\sum X_i\right)^2 .$$
+$$
+\sum X_i^2 \neq \left(\sum X_i\right)^2 .
+$$
 
 The left side squares each score and then sums; the right side sums first and
 squares once. When summation is combined with other operations, exponents and
@@ -51,11 +55,15 @@ multiplications inside the argument are evaluated before the sum is taken.
 
 The arithmetic average. For a population of size $N$,
 
-$$\mu = \frac{1}{N} \sum_{i=1}^{N} X_i,$$
+$$
+\mu = \frac{1}{N} \sum_{i=1}^{N} X_i,
+$$
 
 and for a sample of size $n$,
 
-$$\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i .$$
+$$
+\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i .
+$$
 
 The mean has three properties that matter for everything downstream:
 
@@ -127,7 +135,9 @@ they always sum to zero — positive and negative errors cancel by
 construction. Squaring removes the sign while penalizing large errors
 disproportionately. The **sum of squared deviations** (sum of squares) is
 
-$$SS = \sum_{i=1}^{n} (X_i - \bar{X})^2 .$$
+$$
+SS = \sum_{i=1}^{n} (X_i - \bar{X})^2 .
+$$
 
 $SS$ is total squared error: it grows with the number of scores, so it is
 rarely interpreted on its own.
@@ -158,7 +168,9 @@ mathematically convenient; the SD is the interpretable sibling.
 An equivalent computational form, useful for hand or one-pass calculation of
 the sample variance, is
 
-$$s^2 = \frac{\sum X_i^2 - \left(\sum X_i\right)^2 / n}{n - 1}.$$
+$$
+s^2 = \frac{\sum X_i^2 - \left(\sum X_i\right)^2 / n}{n - 1}.
+$$
 
 The population form uses $N$ in the numerator's divisor and divides by $N$,
 not $N-1$. The two forms are algebraically identical; with finite-precision

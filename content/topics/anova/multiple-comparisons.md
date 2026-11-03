@@ -29,7 +29,9 @@ Keeping each individual test at $.05$ does not keep the family at $.05$. For
 $C$ tests each conducted at $\alpha_{\mathrm{PC}}$, the probability of at
 least one false rejection is
 
-$$\alpha_{\mathrm{FW}} = 1 - (1 - \alpha_{\mathrm{PC}})^C,$$
+$$
+\alpha_{\mathrm{FW}} = 1 - (1 - \alpha_{\mathrm{PC}})^C,
+$$
 
 which is *exact when the tests are independent*. Three independent tests at
 $.05$ give $1 - .95^3 = .1426$, nearly three times the nominal level.
@@ -41,7 +43,9 @@ inflates that rate above the per-comparison level.
 The scope of the problem grows quickly with the number of groups. With $a$
 group means there are
 
-$$C = \frac{a(a-1)}{2}$$
+$$
+C = \frac{a(a-1)}{2}
+$$
 
 possible pairwise comparisons — six for four groups, forty-five for ten.
 
@@ -71,7 +75,9 @@ What a correction must protect is therefore a *defined family*:
 
 Across a declared family of $C$ comparisons, test each at
 
-$$\alpha_{\mathrm{PC}} = \frac{\alpha_{\mathrm{FW}}}{C},$$
+$$
+\alpha_{\mathrm{PC}} = \frac{\alpha_{\mathrm{FW}}}{C},
+$$
 
 for example $.05/3 = .0167$ for a family of three. The guarantee that
 $\alpha_{\mathrm{FW}} \le C \cdot \alpha_{\mathrm{PC}} = .05$ follows from
@@ -122,7 +128,9 @@ and a Bonferroni decision can disagree with an ordinary interval that
 straddles zero. **Bonferroni simultaneous intervals** replace the ordinary
 critical value with the Bonferroni one:
 
-$$\hat\psi \pm \sqrt{F_{\mathrm{crit,B}}}\; SE(\hat\psi), \qquad SE(\hat\psi) = \sqrt{MS_W \sum_j c_j^2 / n_j},$$
+$$
+\hat\psi \pm \sqrt{F_{\mathrm{crit,B}}}\; SE(\hat\psi), \qquad SE(\hat\psi) = \sqrt{MS_W \sum_j c_j^2 / n_j},
+$$
 
 with $SE(\hat\psi)$ as in [Linear Contrasts](/topics/anova/contrasts). For
 the complex contrast above, $SE = 1.204$ and the margin is
@@ -144,7 +152,9 @@ sampling variability makes some observed difference largest, so the maximum
 must be judged against a distribution that reflects the search over all
 pairs. The **studentized range statistic**
 
-$$q = \frac{\bar Y_{\max} - \bar Y_{\min}}{\sqrt{MS_W / n}}$$
+$$
+q = \frac{\bar Y_{\max} - \bar Y_{\min}}{\sqrt{MS_W / n}}
+$$
 
 has that distribution; for equal $n$ it is just the largest pairwise $F$
 rescaled, since $q = \sqrt{2F}$. Critical values of $q$ are tabled by
@@ -152,12 +162,16 @@ $\alpha_{\mathrm{FW}}$, the number of groups $a$, and $df_{\mathrm{error}}$.
 
 For equal sample sizes, a pairwise test uses
 
-$$F = \frac{n(\bar Y_i - \bar Y_j)^2}{2\,MS_W}, \qquad F_{\mathrm{crit,Tukey}} = \frac{q_{\mathrm{crit}}^2}{2},$$
+$$
+F = \frac{n(\bar Y_i - \bar Y_j)^2}{2\,MS_W}, \qquad F_{\mathrm{crit,Tukey}} = \frac{q_{\mathrm{crit}}^2}{2},
+$$
 
 rejecting when $F$ exceeds the Tukey critical value. Equivalently, the
 margin of the simultaneous pairwise interval,
 
-$$HSD = q_{\mathrm{crit}} \sqrt{\frac{MS_W}{n}},$$
+$$
+HSD = q_{\mathrm{crit}} \sqrt{\frac{MS_W}{n}},
+$$
 
 is the **minimum significant difference**: a pairwise difference is
 significant exactly when its absolute value exceeds the HSD.
@@ -189,7 +203,9 @@ Tukey's pairwise family is too narrow. The test statistic is the ordinary
 contrast $F$ from [Linear Contrasts](/topics/anova/contrasts); only the
 critical value changes:
 
-$$F_{\mathrm{crit,S}} = (a-1)\,F_{\alpha;\,a-1,\,N-a},$$
+$$
+F_{\mathrm{crit,S}} = (a-1)\,F_{\alpha;\,a-1,\,N-a},
+$$
 
 that is, the omnibus critical $F$ multiplied by $a - 1$. The *same*
 threshold applies to every contrast, however it was constructed, and the

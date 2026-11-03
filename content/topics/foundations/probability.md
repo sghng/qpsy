@@ -47,7 +47,9 @@ number in an interval). An **event** is a subset of $S$ — one or more
 outcomes viewed as a single proposition. The **complement** $A^c$ of an
 event $A$ consists of all outcomes not in $A$, and
 
-$$P(A^c) = 1 - P(A).$$
+$$
+P(A^c) = 1 - P(A).
+$$
 
 ## Combining events
 
@@ -63,7 +65,9 @@ For two events $A$ and $B$:
 
 The probability that at least one of two events occurs is
 
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B).$$
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B).
+$$
 
 The intersection is subtracted because it is counted in both $P(A)$ and
 $P(B)$ — a Venn diagram makes the double counting visible. For mutually
@@ -74,7 +78,9 @@ exclusive events the rule reduces to $P(A \cup B) = P(A) + P(B)$.
 A **conditional probability** is the probability of one event within the
 restricted world where another event is known to have occurred:
 
-$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \qquad P(B) > 0.$$
+$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \qquad P(B) > 0.
+$$
 
 Conditioning renormalizes the sample space to $B$: only the outcomes in $B$
 remain possible, and their probabilities are rescaled to sum to 1. For
@@ -85,7 +91,9 @@ example, on a fair die with $A = \{2, 4, 6\}$ (even) and $B = \{4, 5, 6\}$
 
 In general
 
-$$P(A \mid B) \neq P(B \mid A).$$
+$$
+P(A \mid B) \neq P(B \mid A).
+$$
 
 With the same die, let $A = \{2, 4, 6\}$ and $B = \{6\}$. Then
 $P(A \mid B) = 1$ — a 6 is certainly even — but $P(B \mid A) = 1/3$: only
@@ -109,12 +117,16 @@ group. The three are linked by the conditional-probability definition above.
 Rearranging the definition of conditional probability yields the general
 **multiplication rule** for joint probability:
 
-$$P(A \cap B) = P(A \mid B)\, P(B) = P(B \mid A)\, P(A).$$
+$$
+P(A \cap B) = P(A \mid B)\, P(B) = P(B \mid A)\, P(A).
+$$
 
 Either factorization is valid; choose the one that matches what is known.
 The rule chains to more events:
 
-$$P(A \cap B \cap C) = P(A)\, P(B \mid A)\, P(C \mid A \cap B).$$
+$$
+P(A \cap B \cap C) = P(A)\, P(B \mid A)\, P(C \mid A \cap B).
+$$
 
 ### Independence
 
@@ -122,7 +134,9 @@ Events $A$ and $B$ are **independent** when knowing one occurred changes
 nothing about the other: $P(A \mid B) = P(A)$, equivalently $P(B \mid A) =
 P(B)$. For independent events the multiplication rule simplifies to
 
-$$P(A \cap B) = P(A)\, P(B),$$
+$$
+P(A \cap B) = P(A)\, P(B),
+$$
 
 extended to any number of independent events by multiplying their marginal
 probabilities. Independence is an assumption about how the world generates
@@ -146,7 +160,9 @@ An event can usually occur through several mutually exclusive routes. If
 $B_1, \ldots, B_k$ partition the sample space (mutually exclusive and
 exhaustive), then
 
-$$P(A) = \sum_{i=1}^{k} P(A \mid B_i)\, P(B_i).$$
+$$
+P(A) = \sum_{i=1}^{k} P(A \mid B_i)\, P(B_i).
+$$
 
 The marginal probability of $A$ is a weighted average of its conditional
 probabilities across the groups, weighted by the groups' probabilities. For a binary
@@ -156,7 +172,9 @@ partition this reads $P(A) = P(A \mid B)P(B) + P(A \mid B^c)P(B^c)$.
 $P(C) = 0.01$, and a test has sensitivity $P({+} \mid C) = 0.90$ and false
 positive rate $P({+} \mid C^c) = 0.08$. Then
 
-$$P(+) = 0.90 \times 0.01 + 0.08 \times 0.99 = 0.0882,$$
+$$
+P(+) = 0.90 \times 0.01 + 0.08 \times 0.99 = 0.0882,
+$$
 
 so about 8.8% of all tests are positive even though only 1% of the
 population has the condition.
@@ -167,7 +185,9 @@ The multiplication rule gives two expressions for the same joint
 probability, $P(A \mid B)P(B) = P(B \mid A)P(A)$. Equating them and dividing
 yields **Bayes' theorem**:
 
-$$P(B \mid A) = \frac{P(A \mid B)\, P(B)}{P(A)} = \frac{P(A \mid B)\, P(B)}{\sum_i P(A \mid B_i)\, P(B_i)},$$
+$$
+P(B \mid A) = \frac{P(A \mid B)\, P(B)}{P(A)} = \frac{P(A \mid B)\, P(B)}{\sum_i P(A \mid B_i)\, P(B_i)},
+$$
 
 where the denominator uses the law of total probability when $B$ is one
 member of the partition $\{B_i\}$. Bayes' theorem **reverses the
@@ -177,7 +197,9 @@ into the probability of the hypothesis given the evidence.
 Continuing the screening example, the probability that a person with a
 positive test actually has the condition is
 
-$$P(C \mid +) = \frac{0.90 \times 0.01}{0.0882} \approx 0.102.$$
+$$
+P(C \mid +) = \frac{0.90 \times 0.01}{0.0882} \approx 0.102.
+$$
 
 Despite 90% sensitivity, only about one in ten positive results is a true
 case, because the condition is rare and false positives are many in
@@ -198,7 +220,9 @@ heights, blood pressure).
 For a discrete random variable, the **probability mass function** (PMF)
 gives the probability of each value:
 
-$$p(x) = P(X = x), \qquad \sum_x p(x) = 1.$$
+$$
+p(x) = P(X = x), \qquad \sum_x p(x) = 1.
+$$
 
 Point probabilities are meaningful for discrete variables: $P(X = 1)$ is
 well defined and generally positive. Named families of PMFs model common
@@ -209,13 +233,17 @@ tail probabilities of the [Sign Test](/topics/foundations/sign-test).
 
 For a continuous random variable, individual points carry no probability:
 
-$$P(X = x) = 0 \quad \text{for every } x,$$
+$$
+P(X = x) = 0 \quad \text{for every } x,
+$$
 
 because no point occupies any share of an interval's infinitely many
 possibilities. Probability attaches to ranges instead, through the
 **probability density function** (PDF) $f(x)$:
 
-$$P(a \leq X \leq b) = \int_a^b f(x)\, dx, \qquad \int_{-\infty}^{\infty} f(x)\, dx = 1.$$
+$$
+P(a \leq X \leq b) = \int_a^b f(x)\, dx, \qquad \int_{-\infty}^{\infty} f(x)\, dx = 1.
+$$
 
 The total area under a density curve is 1, and probability is area over an
 interval. The **height of the curve is not a probability** — it is a
