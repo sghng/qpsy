@@ -26,7 +26,9 @@ items are few, classical test theory is often enough.
 
 ## Estimation
 
-Marginal maximum likelihood is the default. Bayesian estimation wins when
+[Marginal maximum likelihood](/modeling/maximum-likelihood), usually
+computed with [EM](/modeling/em-algorithm), is the default. Bayesian
+estimation wins when
 item parameters are weakly identified by the data at hand, small $N$, few
 items, or extreme difficulties.
 

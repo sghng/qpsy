@@ -31,7 +31,8 @@ $\mathbf{Q}$ propagates directly into classification.
 
 ## Estimation
 
-Marginal maximum likelihood with EM is standard. The latent classes are the
+[Marginal maximum likelihood](/modeling/maximum-likelihood) with
+[EM](/modeling/em-algorithm) is standard. The latent classes are the
 $2^K$ attribute profiles; model complexity grows exponentially in $K$.
 
 ## Failure modes

@@ -18,12 +18,15 @@ The pages in this section follow one arc:
    [Registry](/registry/) for worked likelihoods of reviewed papers.
 3. **Identification.** What the data can and cannot pin down, before fitting.
 4. **Estimation.** Maximum likelihood, EM, or Bayesian sampling, chosen for a
-   stated reason.
+   stated reason. See [Parameter Estimation](/modeling/estimation) for the
+   general framework, [Maximum Likelihood](/modeling/maximum-likelihood), and
+   the [EM Algorithm](/modeling/em-algorithm).
 5. **Assessment.** Fit against alternatives, posterior predictive checks,
    sensitivity to assumptions.
 6. **Comparison.** Information criteria or cross-validation, with their
    known biases on the table.
 7. **Reporting.** What a reader needs to refit the model.
 
-Planned pages expand each step. The registry is the companion surface: many
-lessons live in specific papers rather than general workflow prose.
+The estimation step is written; pages for the remaining steps are planned.
+The registry is the companion surface: many lessons live in specific papers
+rather than general workflow prose.
