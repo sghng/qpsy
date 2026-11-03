@@ -17,6 +17,9 @@
   "routes": [
     { "pattern": "qpsy.dev", "custom_domain": true }
   ],
+  // Keep the workers.dev URL enabled as a fallback (useful where qpsy.dev is
+  // blocked by category filters, e.g. campus networks).
+  "workers_dev": true,
   "build": {
     // Runs as part of `wrangler deploy` and `wrangler dev` (needs bun on PATH).
     "command": "bun install && bun run build"
