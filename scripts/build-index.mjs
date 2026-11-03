@@ -6,7 +6,7 @@
 // renderer artifact and must never be relied upon.
 // Zero dependencies. Run with `bun run index`; part of dev/build.
 // Runs AFTER the Quartz build (Quartz owns the public/ directory).
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 const SITE = 'https://qpsy.dev'
@@ -150,6 +150,30 @@ llms += `\nStructured index: ${SITE}/registry.json\nLink graph: ${SITE}/graph.js
 const graph = {
   nodes: pages.map((p) => ({ slug: p.url, title: p.title, description: p.description })),
   edges,
+}
+
+// Guard: KaTeX renders parse errors INTO the output (red text) instead of
+// failing the build, so a successful build proves nothing about math. Scan
+// the emitted HTML and fail loudly on any katex-error span.
+{
+  const bad = []
+  const walkHtml = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name.startsWith('.')) continue
+      const path = join(dir, entry.name)
+      if (entry.isDirectory()) walkHtml(path)
+      else if (entry.name.endsWith('.html') && readFileSync(path, 'utf8').includes('katex-error')) {
+        bad.push(relative('public', path))
+      }
+    }
+  }
+  if (existsSync('public')) walkHtml('public')
+  if (bad.length > 0) {
+    console.error(`math check FAILED: katex-error found in ${bad.length} page(s):`)
+    for (const p of bad) console.error(`  ${p}`)
+    process.exit(1)
+  }
+  console.log('math check: no katex-error spans in emitted HTML')
 }
 
 mkdirSync('public', { recursive: true })

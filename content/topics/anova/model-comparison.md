@@ -78,9 +78,7 @@ worse, so the restricted model's error is always at least the full model's.
 
 Substituting each model's least-squares predictions gives its error:
 
-$$E_F = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y_j\right)^2,
-\qquad
-E_R = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y\right)^2,$$
+$$E_F = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y_j\right)^2, \qquad E_R = \sum_{j=1}^{a}\sum_{i=1}^{n_j} \left(Y_{ij} - \bar Y\right)^2,$$
 
 the full-model error $E_F$ (deviations from group means) and the
 restricted-model error $E_R$ (deviations from the grand mean), with
@@ -182,9 +180,7 @@ $10$; the group squared errors are $29$, $34$, and $65$, so $E_R = 128$. The
 restriction increases error by $E_R - E_F = 70$ while removing $a - 1 = 2$
 parameters ($df_R = 14$, $df_F = 12$):
 
-$$PIE = \frac{70}{58} = 1.2069, \qquad
-PRE = \eta^2 = \frac{70}{128} = 0.5469, \qquad
-F = \frac{70/2}{58/12} = \frac{35}{4.83} = 7.24.$$
+$$PIE = \frac{70}{58} = 1.2069, \qquad PRE = \eta^2 = \frac{70}{128} = 0.5469, \qquad F = \frac{70/2}{58/12} = \frac{35}{4.83} = 7.24.$$
 
 The $F$ of 7.24 is the identical omnibus statistic computed from the classic
 summary table; its degrees of freedom are $(a-1, N-a) = (2, 12)$. In this

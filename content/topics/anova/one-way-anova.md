@@ -20,8 +20,7 @@ relative to the second.
 For $a$ independent groups with population means $\mu_1, \ldots, \mu_a$, the
 hypotheses are
 
-$$H_0\colon \mu_1 = \mu_2 = \cdots = \mu_a, \qquad
-H_1\colon \text{the means are not all equal.}$$
+$$H_0\colon \mu_1 = \mu_2 = \cdots = \mu_a, \qquad H_1\colon \text{the means are not all equal.}$$
 
 The alternative is stated in words because it is not one specific pattern: it
 is satisfied when a single mean departs from the rest, when the means split
@@ -67,9 +66,7 @@ within-group variance exceeds what chance alone produces.
 Squaring and summing the deviations over all observations yields the three
 sums of squares:
 
-$$SS_W = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2, \qquad
-SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2, \qquad
-SS_T = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y})^2,$$
+$$SS_W = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2, \qquad SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2, \qquad SS_T = \sum_{j=1}^{a} \sum_{i=1}^{n_j} (Y_{ij} - \bar{Y})^2,$$
 
 with $SS_W$ pooling the squared deviations within each group and $SS_B$
 weighting each squared deviation of a group mean by that group's size — which
@@ -87,8 +84,7 @@ follows from the partition.
 Each sum of squares carries its own degrees of freedom, partitioned in the
 same way:
 
-$$df_B = a - 1, \qquad df_W = N - a, \qquad df_T = N - 1, \qquad
-df_T = df_B + df_W.$$
+$$df_B = a - 1, \qquad df_W = N - a, \qquad df_T = N - 1, \qquad df_T = df_B + df_W.$$
 
 A mean square is a variance estimate — the term ANOVA uses for a sum of
 squares divided by its degrees of freedom:
@@ -142,9 +138,7 @@ variation against which group differences are judged.
 A one-way ANOVA does not require the raw data. Given the group sizes $n_j$,
 sample means $\bar{Y}_j$, and sample variances $s_j^2$ for each group:
 
-$$\bar{Y} = \frac{\sum_j n_j \bar{Y}_j}{N}, \qquad
-SS_W = \sum_{j=1}^{a} (n_j - 1) s_j^2, \qquad
-SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2.$$
+$$\bar{Y} = \frac{\sum_j n_j \bar{Y}_j}{N}, \qquad SS_W = \sum_{j=1}^{a} (n_j - 1) s_j^2, \qquad SS_B = \sum_{j=1}^{a} n_j (\bar{Y}_j - \bar{Y})^2.$$
 
 The degrees of freedom, mean squares, and $F$ ratio then follow exactly as
 above. This route reproduces published analyses from the summary statistics

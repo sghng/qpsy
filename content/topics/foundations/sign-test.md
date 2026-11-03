@@ -14,8 +14,7 @@ binomial distribution with success probability one-half.
 
 For each pair $(Y_{i1}, Y_{i2})$, compute the difference and record its sign:
 
-$$D_i = Y_{i2} - Y_{i1}, \qquad
-S_i = \begin{cases} +1 & D_i > 0 \\ -1 & D_i < 0 \end{cases}$$
+$$D_i = Y_{i2} - Y_{i1}, \qquad S_i = \begin{cases} +1 & D_i > 0 \\ -1 & D_i < 0 \end{cases}$$
 
 The test statistic $X$ is the count of one chosen sign — say the number of
 positive differences. If the null hypothesis of no systematic change is true,
@@ -102,8 +101,7 @@ $$P(X = 8) = \binom{10}{8}\Big(\tfrac{1}{2}\Big)^{10} = \frac{45}{1024} \approx 
 
 but the evidence lies in the tail:
 
-$$p_{\text{one-sided}} = P(X \geq 8) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547,
-\qquad p_{\text{two-sided}} = 2 \times .0547 = .1094.$$
+$$p_{\text{one-sided}} = P(X \geq 8) = \frac{45 + 10 + 1}{1024} = \frac{56}{1024} \approx .0547, \qquad p_{\text{two-sided}} = 2 \times .0547 = .1094.$$
 
 At $\alpha = .05$ the two-sided critical region is $X \leq 1$ or $X \geq 9$,
 since $P(X \geq 9) = 11/1024 \approx .0108 \leq .025$ while

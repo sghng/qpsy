@@ -103,18 +103,15 @@ deviation is $\sigma_\varepsilon = 20$, and the plan is $n = 10$ per group
 
 The average of the population means is $\mu = 50$, so
 
-$$\sigma_m = \sqrt{\frac{(40-50)^2 + (50-50)^2 + (60-50)^2}{3}}
-= \sqrt{\frac{200}{3}} = 8.16497,$$
+$$\sigma_m = \sqrt{\frac{(40-50)^2 + (50-50)^2 + (60-50)^2}{3}} = \sqrt{\frac{200}{3}} = 8.16497,$$
 
-$$f = \frac{8.16497}{20} = 0.408248, \qquad
-\lambda = N f^2 = 30 \times 0.408248^2 = 5.$$
+$$f = \frac{8.16497}{20} = 0.408248, \qquad \lambda = N f^2 = 30 \times 0.408248^2 = 5.$$
 
 With $df_1 = a - 1 = 2$ and $df_2 = N - a = 27$, the central $F(2, 27)$
 distribution gives $F_{\text{crit}} = 3.35413$. The power is the noncentral-$F$
 tail area:
 
-$$\text{Power} = P\left(F'_{2,27}(\lambda = 5) \geq 3.35413\right) = 0.457992
-\approx .458.$$
+$$\text{Power} = P\left(F'_{2,27}(\lambda = 5) \geq 3.35413\right) = 0.457992 \approx .458.$$
 
 A study of this size would detect the specified configuration of means fewer
 than half of the time. Note that $f = 0.408$ sits at the conventional "large"

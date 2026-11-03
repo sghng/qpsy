@@ -85,8 +85,7 @@ A running example uses three groups with $n_j=5$: two active treatments with mea
 $9$ and $8$, and a control with mean $13$, with $MS_W=58/12=4.833$ and $SS_B=70$.
 For the comparison of the average active-treatment mean to the control mean,
 
-$$c=\left(\tfrac12,\tfrac12,-1\right),\qquad
-\hat\psi=\tfrac12(9)+\tfrac12(8)-13=-4.5,$$
+$$c=\left(\tfrac12,\tfrac12,-1\right),\qquad \hat\psi=\tfrac12(9)+\tfrac12(8)-13=-4.5,$$
 
 so the average of the two active-treatment means is estimated to fall $4.5$ points
 below the control mean. For the pairwise comparison of the two active treatments,
@@ -123,8 +122,7 @@ framed as either an $F$ test or a $t$ test.
 
 The error increase has a closed form that avoids fitting the restricted model:
 
-$$SS_\psi=E_R-E_F=\frac{\hat\psi^2}{\sum_j c_j^2/n_j},\qquad
-F=\frac{SS_\psi}{MS_W}=\frac{\hat\psi^2}{MS_W\sum_j c_j^2/n_j},$$
+$$SS_\psi=E_R-E_F=\frac{\hat\psi^2}{\sum_j c_j^2/n_j},\qquad F=\frac{SS_\psi}{MS_W}=\frac{\hat\psi^2}{MS_W\sum_j c_j^2/n_j},$$
 
 with $1$ and $N-a$ degrees of freedom, and equivalently
 
@@ -137,9 +135,7 @@ weighting of the means.
 
 In the running example, $\sum_j c_j^2/n_j=\tfrac14/5+\tfrac14/5+1/5=.3$, so
 
-$$SS_\psi=\frac{(-4.5)^2}{.3}=67.5,\qquad
-F=\frac{67.5}{58/12}=13.97,\qquad
-t=\frac{-4.5}{1.204}=-3.737.$$
+$$SS_\psi=\frac{(-4.5)^2}{.3}=67.5,\qquad F=\frac{67.5}{58/12}=13.97,\qquad t=\frac{-4.5}{1.204}=-3.737.$$
 
 The $F$ of $13.97$ exceeds the critical value $F_{.05}(1,12)=4.75$: the data provide evidence
 that the average of the two active-treatment means differs from the control mean.
@@ -152,8 +148,7 @@ value.
 A $95\%$ confidence interval for $\psi$ follows the estimate-plus-minus-margin
 pattern ([Confidence Intervals](/topics/foundations/confidence-intervals)):
 
-$$\hat\psi \pm t^*_{.975,\,N-a}\,SE(\hat\psi)
-\;=\; \hat\psi \pm \sqrt{F_{.05}(1,N-a)}\;SE(\hat\psi),$$
+$$\hat\psi \pm t^*_{.975,\,N-a}\,SE(\hat\psi) \;=\; \hat\psi \pm \sqrt{F_{.05}(1,N-a)}\;SE(\hat\psi),$$
 
 where the two-tailed $t$ critical value and the square root of the $F$ critical
 value coincide. For the complex contrast,
@@ -220,8 +215,7 @@ data would give $d=-8.2$, which no longer measures an average mean difference.
 **Association strength.** Two proportions locate the contrast in the overall
 variance decomposition:
 
-$$R^2_{\text{alerting}}=\frac{SS_\psi}{SS_B}, \qquad
-R^2_{\text{effect size}}=\frac{SS_\psi}{SS_T}.$$
+$$R^2_{\text{alerting}}=\frac{SS_\psi}{SS_B}, \qquad R^2_{\text{effect size}}=\frac{SS_\psi}{SS_T}.$$
 
 The alerting proportion measures how much of the *between-group* variability the
 contrast captures; the effect-size proportion uses the *total* variability, adding
@@ -246,8 +240,7 @@ Two contrasts are **orthogonal** when they carry nonoverlapping information abou
 the mean differences. The check multiplies the two coefficient vectors element by
 element within each group and sums:
 
-$$\sum_j c_{1j}c_{2j}=0 \quad\text{(equal } n_j\text{)}, \qquad
-\sum_j \frac{c_{1j}c_{2j}}{n_j}=0 \quad\text{(unequal } n_j\text{)}.$$
+$$\sum_j c_{1j}c_{2j}=0 \quad\text{(equal } n_j\text{)}, \qquad \sum_j \frac{c_{1j}c_{2j}}{n_j}=0 \quad\text{(unequal } n_j\text{)}.$$
 
 In the running example the pairwise and complex contrasts are orthogonal:
 $1(\tfrac12)+(-1)(\tfrac12)+0(-1)=0$. Under equal sample sizes, the sums of

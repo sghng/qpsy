@@ -122,8 +122,7 @@ and a Bonferroni decision can disagree with an ordinary interval that
 straddles zero. **Bonferroni simultaneous intervals** replace the ordinary
 critical value with the Bonferroni one:
 
-$$\hat\psi \pm \sqrt{F_{\mathrm{crit,B}}}\; SE(\hat\psi), \qquad
-SE(\hat\psi) = \sqrt{MS_W \sum_j c_j^2 / n_j},$$
+$$\hat\psi \pm \sqrt{F_{\mathrm{crit,B}}}\; SE(\hat\psi), \qquad SE(\hat\psi) = \sqrt{MS_W \sum_j c_j^2 / n_j},$$
 
 with $SE(\hat\psi)$ as in [Linear Contrasts](/topics/anova/contrasts). For
 the complex contrast above, $SE = 1.204$ and the margin is
@@ -153,8 +152,7 @@ $\alpha_{\mathrm{FW}}$, the number of groups $a$, and $df_{\mathrm{error}}$.
 
 For equal sample sizes, a pairwise test uses
 
-$$F = \frac{n(\bar Y_i - \bar Y_j)^2}{2\,MS_W},
-\qquad F_{\mathrm{crit,Tukey}} = \frac{q_{\mathrm{crit}}^2}{2},$$
+$$F = \frac{n(\bar Y_i - \bar Y_j)^2}{2\,MS_W}, \qquad F_{\mathrm{crit,Tukey}} = \frac{q_{\mathrm{crit}}^2}{2},$$
 
 rejecting when $F$ exceeds the Tukey critical value. Equivalently, the
 margin of the simultaneous pairwise interval,

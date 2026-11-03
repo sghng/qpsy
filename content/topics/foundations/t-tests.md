@@ -64,8 +64,7 @@ $$s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2},$$
 with $s_1^2, s_2^2$ the group sample variances. The standard error of the mean
 difference and the test statistic are
 
-$$SE_{pooled} = \sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}, \qquad
-t = \frac{\bar{X}_1 - \bar{X}_2}{SE_{pooled}}, \qquad df = n_1 + n_2 - 2.$$
+$$SE_{pooled} = \sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}, \qquad t = \frac{\bar{X}_1 - \bar{X}_2}{SE_{pooled}}, \qquad df = n_1 + n_2 - 2.$$
 
 ### Welch's version
 
@@ -78,8 +77,7 @@ $$SE_{Welch} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},$$
 
 and adjusts the degrees of freedom with the Satterthwaite approximation:
 
-$$df = \frac{\left( \dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2} \right)^2}
-{\dfrac{1}{n_1 - 1}\left( \dfrac{s_1^2}{n_1} \right)^2 + \dfrac{1}{n_2 - 1}\left( \dfrac{s_2^2}{n_2} \right)^2},$$
+$$df = \frac{\left( \dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2} \right)^2} {\dfrac{1}{n_1 - 1}\left( \dfrac{s_1^2}{n_1} \right)^2 + \dfrac{1}{n_2 - 1}\left( \dfrac{s_2^2}{n_2} \right)^2},$$
 
 which is fractional and is best computed by software. When $n_1 = n_2$ the two
 standard errors coincide even under unequal variances, because the pooled
@@ -106,8 +104,7 @@ of every difference and of the mean difference $\bar{D}$. Writing $D_i = X_{2i}
 $\mu_D$ for the population mean of the differences, the paired test is a
 one-sample $t$ test on the differences:
 
-$$t = \frac{\bar{D} - \mu_D}{s_D / \sqrt{n}} \quad \xrightarrow{\mu_D = 0} \quad
-t = \frac{\bar{D}}{s_D / \sqrt{n}}, \qquad df = n - 1,$$
+$$t = \frac{\bar{D} - \mu_D}{s_D / \sqrt{n}} \quad \xrightarrow{\mu_D = 0} \quad t = \frac{\bar{D}}{s_D / \sqrt{n}}, \qquad df = n - 1,$$
 
 where $s_D$ is the standard deviation of the difference scores and $n$ is the
 number of pairs. Because stable individual differences cancel inside each
