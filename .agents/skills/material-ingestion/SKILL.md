@@ -91,7 +91,10 @@ not visual verification and must not be reported as such.
 
 Each source brief must contain:
 
-- an exhaustive concept inventory with page or slide references;
+- an exhaustive concept inventory with page or slide references, covering
+  procedures and conventions (statistical-table lookup, critical-value reading,
+  standard diagrams) as well as concepts and formulas, and marking passages the
+  source emphasizes with dedicated slides or repetition;
 - definitions, equations, assumptions, procedures, and example lessons;
 - missing, garbled, or visually dependent passages requiring verification;
 - ambiguities, internal inconsistencies, and possible source errors;
@@ -123,6 +126,14 @@ Create a note map before drafting. For every proposed note, record:
 - source pages supporting it;
 - prerequisite and downstream links;
 - unresolved claims requiring targeted reading.
+
+The note map must also trace coverage in the other direction: every substantive
+item in each reader's inventory — concepts, procedures, and table or diagram
+conventions — is assigned to a destination note and section, or explicitly
+excluded with a recorded reason. "Accounted for" in a brief means the content
+was extracted, not that it survived synthesis. Exclude items individually, not
+by category: skipping classroom drills, for example, does not exclude the
+procedure those drills teach.
 
 Maintain one consolidated verification queue. Every missing-content flag,
 ambiguity, and open question from every brief must be either resolved or
@@ -174,9 +185,16 @@ exercises.
 ### 7. Integrate and validate
 
 Update section indexes and navigation so the notes are discoverable. Check
-internal links, mathematical rendering, cross-note terminology, and coverage
-against the source inventory. Public notes must not depend on temporary files
-or private source paths.
+internal links, mathematical rendering, and cross-note terminology. Public
+notes must not depend on temporary files or private source paths.
+
+Run a concept-survival audit: trace substantive rows from each brief's
+inventory — prioritizing passages the source gave dedicated space to — into
+their assigned note sections, and confirm each appears there or has a recorded
+exclusion. Coverage against the source inventory means this trace, not merely
+that every source file was read. When the materials include a study guide or
+learning-objective list, its items can also serve as a final acceptance test
+of the notes.
 
 Use an independent reviewer for high-impact collections when possible. Ask the
 reviewer to check both fidelity to the sources and whether the synthesis omits
@@ -194,6 +212,8 @@ Finally:
 
 The ingestion is complete when each in-scope concept has one canonical home,
 source-specific claims are traceable and verified, links form useful paths
-across notes, and the repository builds successfully. A polished prose style
-does not compensate for missing equations, unexamined figures, or unresolved
+across notes, and the repository builds successfully. A concept or procedure
+extracted in a brief but absent from every note is an unrecorded exclusion;
+resolve it or record why it was dropped. A polished prose style does not
+compensate for missing equations, unexamined figures, or unresolved
 contradictions.
