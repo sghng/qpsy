@@ -6,7 +6,8 @@
     "bootstrap": "bun scripts/bootstrap-quartz.mjs",
     "index": "bun scripts/build-index.mjs",
     "dev": "bun run bootstrap && cd .quartz-engine && bun ./quartz/bootstrap-cli.mjs build -d content -o ../public --serve",
-    "build": "bun run bootstrap && cd .quartz-engine && bun ./quartz/bootstrap-cli.mjs build -d content -o ../public && cd .. && bun run index"
+    "build": "bun run bootstrap && cd .quartz-engine && bun ./quartz/bootstrap-cli.mjs build -d content -o ../public && cd .. && bun run index",
+    "deploy": "bunx wrangler deploy"
   },
   "devDependencies": {}
 }

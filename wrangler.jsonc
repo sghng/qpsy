@@ -1,0 +1,24 @@
+// Cloudflare Worker configuration — source of truth for the qpsy deployment.
+// Assets-only Worker (no script): serves the Quartz build output.
+// Do not change Worker settings in the Cloudflare dashboard; change this file.
+//
+// Deploy: `bun run deploy` (local, after `bunx wrangler login`) or push to
+// main (.github/workflows/deploy.yml, CLOUDFLARE_API_TOKEN secret).
+{
+  "name": "qpsy",
+  "compatibility_date": "2026-11-02",
+  "assets": {
+    // Quartz build output (mixed layout: folder/index.html + file.html).
+    // auto-trailing-slash serves both forms; 404-page serves public/404.html.
+    "directory": "./public/",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [
+    { "pattern": "qpsy.dev", "custom_domain": true }
+  ],
+  "build": {
+    // Runs as part of `wrangler deploy` and `wrangler dev` (needs bun on PATH).
+    "command": "bun install && bun run build"
+  }
+}

@@ -74,7 +74,12 @@ requested work.
 
 ## Commits and deploys
 
-Conventional commits. Push to `main` triggers the Cloudflare Pages build:
-`bun install && bun run build`, output directory `public/`. Cloudflare
-clones shallowly; if git-based dates matter, prefix the build command with
-`git fetch --unshallow &&`.
+Conventional commits. Deployment is config-file driven; never change Worker
+settings in the Cloudflare dashboard — `wrangler.jsonc` is the source of
+truth (assets-only Worker `qpsy`, output `public/`, custom domain qpsy.dev).
+
+- Push to `main` triggers `.github/workflows/deploy.yml`, which runs
+  `wrangler deploy` (the config's `build.command` runs
+  `bun install && bun run build` first). Requires the
+  `CLOUDFLARE_API_TOKEN` secret in the repository.
+- Local deploy: `bun run deploy` (after `bunx wrangler login`).

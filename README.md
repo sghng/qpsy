@@ -77,6 +77,8 @@ evaluated against real qpsy queries before new infrastructure is adopted.
 | `.quartz-engine/` | pinned Quartz engine, gitignored, fetched by `bun run bootstrap` |
 | `scripts/build-index.mjs` | generates `llms.txt`, `registry.json`, `graph.json` |
 | `scripts/bootstrap-quartz.mjs` | fetches the pinned engine and links the project into it |
+| `wrangler.jsonc` | Cloudflare Worker configuration (source of truth for the deploy) |
+| `.github/workflows/deploy.yml` | push-to-main deploy via wrangler |
 
 The publisher is not a fork: the engine is disposable tooling (like
 `node_modules`), and only the project files above are committed. Upgrades
