@@ -129,6 +129,20 @@ $$
 $$
 ```
 
+Obsidian also accepts looser display forms — `$$x$$` on a single line, or
+content starting on the `$$` opener line — but remark-math-based publish
+pipelines (e.g. Quartz) do not:
+
+- Single-line `$$x$$` silently renders as **inline** math (not centered,
+  text-style fractions).
+- Content on the opener line breaks `$` pairing whenever any inline
+  `$...$` appears earlier in the file, corrupting every formula after it.
+
+Always author block math in the fenced form shown above, with `$$` alone on
+its own lines. In the qpsy repository the build fails on both regressions
+(`scripts/build-index.mjs` checks for `katex-error` and for display blocks
+that degrade to inline rendering).
+
 ## Diagrams (Mermaid)
 
 ````markdown
