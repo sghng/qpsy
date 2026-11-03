@@ -22,6 +22,10 @@ when authoring Obsidian-shaped content.
   duplicating its definition or procedure.
 - **Sources inform; they do not govern by authority.** Check ambiguous,
   simplified, or apparently incorrect claims before propagating them.
+- **Numbers are validated in code.** When values are involved — worked
+  examples, derived statistics, arithmetic quoted from notes, or numbers
+  constructed for a new example — run the math in Python or R. Mental
+  arithmetic and recalled constants are drafts, not checks.
 - **Provenance survives summarization.** Keep source and page or slide
   references in working notes until all factual and mathematical checks pass.
 - **Public notes stay project-independent.** Remove course logistics, local
@@ -136,8 +140,10 @@ Return to the original materials for every equation, visually dense slide,
 unexpected claim, and disagreement between readers. Use practice solutions to
 check procedures, not as a substitute for definitions or assumptions.
 Recompute every worked numeric answer before reuse, including answers in
-speaker notes and handwritten keys; record source errors rather than
-propagating them or silently correcting them inside a quotation.
+speaker notes and handwritten keys. Validate the math by executing it in
+Python or R — a scratch script or REPL session is enough — and keep the
+script or transcript with the working notes; record source errors rather
+than propagating them or silently correcting them inside a quotation.
 
 When the materials are unclear or wrong, consult an authoritative primary
 source. Verify paper metadata and DOIs before citing them. Keep a distinction
@@ -160,8 +166,8 @@ Each note should contain only the structure needed for its concept, typically:
 - links to prerequisites, alternatives, and downstream methods;
 - references for source-specific or contested claims.
 
-Every page needs frontmatter `desc`. Use neutral voice, consistent notation,
-and stable links. Remove `status: stub` only when the page contains real,
+Every page needs frontmatter `description`. Use neutral voice, consistent
+notation, and stable links. Remove `status: stub` only when the page contains real,
 checked content. Prefer one substantive example over a sequence of classroom
 exercises.
 
