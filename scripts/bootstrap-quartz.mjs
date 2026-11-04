@@ -62,6 +62,8 @@ const PLUGIN_PKGS = [
 // engine-dir path -> repo-root path (symlinks created inside the engine dir)
 const LINKS = {
   content: 'content',
+  // Local plugin packages consumed by quartz.config.yaml via ./plugins/<name>
+  plugins: 'plugins',
   'quartz.config.yaml': 'quartz.config.yaml',
 }
 

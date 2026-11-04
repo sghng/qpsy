@@ -119,8 +119,10 @@ const normalPages = pages.filter((p) => !p.url.startsWith('/registry/'))
 
 let llms = `# qpsy
 
-> A documentation layer for quantitative psychology: methods, modeling,
-> research practice, writing conventions, and a paper review registry.
+> An agent-first knowledge vault for quantitative psychology: methods,
+> modeling, research practice, writing conventions, and a paper review
+> registry. The Markdown vault is the product; the rendered site is a
+> byproduct.
 
 Base URL: ${SITE}
 Machine surfaces: ${SITE}/llms.txt, ${SITE}/registry.json, ${SITE}/graph.json

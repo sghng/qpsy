@@ -1,0 +1,37 @@
+{
+  "name": "context7-widget",
+  "version": "1.0.0",
+  "description": "qpsy local Quartz plugin: loads the Context7 chat widget on every page",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "quartz": {
+    "name": "context7-widget",
+    "displayName": "Context7 Chat Widget",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": false,
+    "defaultOptions": {},
+    "components": {
+      "Context7Widget": {
+        "displayName": "Context7 Chat Widget",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 100
+      }
+    }
+  }
+}

@@ -200,6 +200,10 @@ plugins:
     options:
       links:
         GitHub: https://github.com/sghng/qpsy
+  # qpsy-owned local plugin: loads the Context7 chat widget site-wide via an
+  # afterDOMLoaded script; the component renders nothing.
+  - source: ./plugins/context7-widget
+    enabled: true
   - source: ./node_modules/@quartz-community/recent-notes
     enabled: false
   - source: ./node_modules/@quartz-community/spacer
