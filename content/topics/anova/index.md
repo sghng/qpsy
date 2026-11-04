@@ -25,8 +25,9 @@ questions into contrasts, multiplicity control, and design planning.
 
 - [Linear Contrasts](/topics/anova/contrasts): pairwise and complex comparisons,
   confidence intervals, effect sizes, orthogonality, and unequal-variance tests.
-- [Multiple Comparisons](/topics/anova/multiple-comparisons): familywise error,
-  Bonferroni, Tukey HSD, Scheffé, and procedure selection.
+- [Multiple Comparisons](/topics/anova/multiple-comparisons): familywise error
+  and FDR, Bonferroni, Tukey HSD, Scheffé, Dunnett, Hsu, protected LSD,
+  simultaneous intervals, omnibus testing, and procedure selection.
 
 A useful path is to begin with the omnibus partition in One-Way ANOVA, then read
 Model Comparison for the more general restricted-versus-full perspective.
