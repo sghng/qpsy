@@ -52,7 +52,6 @@ function validRecord(overrides = {}) {
       doi: '10.1007/BF02296131',
       model: 'Polychoric correlation, two-step',
       topics: ['ordinal data', 'correlation structure', 'sem'],
-      aliases: ['./joreskog-1994'],
       reviewed: '2026-10-13',
       description: 'Two-step polychoric estimation',
       ...overrides.fm,
@@ -110,13 +109,8 @@ describe('frontmatter parsing', () => {
 })
 
 describe('registry validation', () => {
-  test('accepts a complete entry and a registry-relative former-key alias', () => {
+  test('accepts a complete entry', () => {
     expect(validateRegistry([validRecord()])).toEqual([])
-  })
-
-  test('rejects bare aliases because Quartz would redirect from the site root', () => {
-    const errors = validateRegistry([validRecord({ fm: { aliases: ['joreskog-1994'] } })])
-    expect(errors.some((error) => error.includes('./former-key'))).toBe(true)
   })
 
   test('rejects invalid keys and filename mismatches', () => {
@@ -163,19 +157,19 @@ describe('registry validation', () => {
   test('rejects duplicate normalized DOIs', () => {
     const second = validRecord({
       key: 'another-2020-dummy-model',
-      fm: { doi: 'https://doi.org/10.1007/bf02296131', aliases: [] },
+      fm: { doi: 'https://doi.org/10.1007/bf02296131' },
     })
     const errors = validateRegistry([validRecord(), second])
     expect(errors.some((error) => error.includes('normalized DOI'))).toBe(true)
   })
 
-  test('rejects current-key and alias collisions', () => {
+  test('rejects duplicate current keys', () => {
     const second = validRecord({
-      key: 'another-2020-dummy-model',
-      fm: { doi: '10.1234/another', aliases: ['./joreskog-1994'] },
+      fm: { doi: '10.1234/another' },
+      record: { rel: 'duplicate.md' },
     })
     const errors = validateRegistry([validRecord(), second])
-    expect(errors.some((error) => error.includes('already claimed'))).toBe(true)
+    expect(errors.some((error) => error.includes('already used'))).toBe(true)
   })
 
   test('rejects Better BibTeX and citation-key fields', () => {
@@ -274,6 +268,7 @@ describe('Crossref entry scaffolding', () => {
     expect(records[0].fm.status).toBe('stub')
     expect(records[0].fm.reviewed).toBe('2026-11-04')
     expect(records[0].fm).not.toHaveProperty('zotero_citekey')
+    expect(records[0].fm).not.toHaveProperty('aliases')
     const source = readFileSync(first.path, 'utf8')
     expect(source).toStartWith('---\nkey: joreskog-1994-polychoric-correlations\ntitle:')
     expect(source).toContain('\ntopics: []\n')

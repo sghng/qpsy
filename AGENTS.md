@@ -39,9 +39,9 @@ Load `.agents/skills/paper-registry/SKILL.md` when creating or maintaining
 entries.
 
 - New keys are lowercase ASCII `firstauthor-year-short-title`; the curated
-  short-title mnemonic has 2–4 words. Freeze published keys and retain former
-  qpsy keys as `./former-key` entries in `aliases` so Quartz preserves the old
-  registry URL. Never add Better BibTeX or other citation-key fields.
+  short-title mnemonic has 2–4 words. Avoid unnecessary renames, but do not
+  maintain registry-specific aliases or redirects for old URLs. Never add
+  Better BibTeX or other citation-key fields.
 - DOI is the canonical external identity. Match Zotero items by normalized
   DOI, then title/year/first author; broader matches require review.
 - Metadata (`title`, `authors`, `year`, `venue`, `doi`) is verified against

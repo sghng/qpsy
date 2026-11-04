@@ -45,12 +45,6 @@ export function isValidDoi(value) {
   return DOI_PATTERN.test(normalizeDoi(value))
 }
 
-// Quartz resolves ./former-key relative to the registry page, preserving the
-// old /registry/<key> URL. Bare aliases incorrectly redirect from the site root.
-export function normalizeRegistryAlias(value) {
-  return String(value ?? '').replace(/^\.\//, '')
-}
-
 export function slugify(value) {
   const transliterations = {
     'ß': 'ss',
@@ -156,16 +150,8 @@ function isRealDate(value) {
 
 export function validateRegistry(records) {
   const errors = []
-  const identifiers = new Map()
+  const keys = new Map()
   const dois = new Map()
-
-  const claimIdentifier = (identifier, owner) => {
-    if (identifiers.has(identifier)) {
-      errors.push(`${owner}: key or alias "${identifier}" is already claimed by ${identifiers.get(identifier)}`)
-    } else {
-      identifiers.set(identifier, owner)
-    }
-  }
 
   for (const record of records) {
     const label = record.rel
@@ -217,26 +203,8 @@ export function validateRegistry(records) {
       if (fm.key !== record.basename) {
         errors.push(`${label}: key "${fm.key}" must equal filename basename "${record.basename}"`)
       }
-      claimIdentifier(fm.key, label)
-    }
-
-    if (fm.aliases !== undefined) {
-      if (!Array.isArray(fm.aliases)) {
-        errors.push(`${label}: registry field "aliases" must be an array of former qpsy keys`)
-      } else {
-        for (const alias of fm.aliases) {
-          const normalizedAlias = normalizeRegistryAlias(alias)
-          if (typeof alias !== 'string' || !alias.startsWith('./') || !SLUG_PATTERN.test(normalizedAlias)) {
-            errors.push(`${label}: alias "${String(alias)}" must have the ./former-key form, using a lowercase ASCII kebab-case former qpsy key`)
-            continue
-          }
-          if (normalizedAlias === fm.key) {
-            errors.push(`${label}: alias "${alias}" duplicates the entry's current key`)
-            continue
-          }
-          claimIdentifier(normalizedAlias, label)
-        }
-      }
+      if (keys.has(fm.key)) errors.push(`${label}: key "${fm.key}" is already used by ${keys.get(fm.key)}`)
+      else keys.set(fm.key, label)
     }
 
     if (typeof fm.doi === 'string' && fm.doi.trim()) {

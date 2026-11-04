@@ -21,11 +21,9 @@ one-page-per-paper records, use `material-ingestion` as well.
 - **DOI is the bibliographic identity.** It is the primary exact-match field
   for external services and Zotero. Compare DOIs after removing `doi:` or DOI
   resolver prefixes, decoding percent escapes, and ignoring case.
-- **`aliases` contains former qpsy keys only.** Write each as
-  `./former-key`, which Quartz resolves relative to the entry and therefore
-  redirects the old `/registry/former-key` address. A bare alias would
-  incorrectly redirect from the site root. Do not put Zotero item keys,
-  citation keys, or alternate titles in this field.
+- **Registry-specific aliases and redirect preservation are out of scope.**
+  Agents use the current machine indexes and bibliographic metadata; old URLs
+  do not need registry-specific redirect handling.
 - **Better BibTeX keys are excluded.** Do not add `citekey`,
   `zotero_citekey`, `bbt_citekey`, `better_bibtex_key`, or an equivalent field.
   Registry pages and scripts must not depend on a personal citation-key setup.
@@ -50,10 +48,9 @@ Include surname particles where appropriate, as in `de-la-torre`. Automatic
 transliteration is a draft; inspect it and use the scaffolder's
 `--author-slug` option when a curated form is needed.
 
-The key is derived from metadata only at creation. Freeze it afterward: do not
-rename automatically after a metadata correction, and never reuse a published
-key for a different paper. Prefer a more specific title mnemonic over an
-arbitrary numeric suffix when resolving a collision.
+The key is derived from metadata at creation. Avoid unnecessary renames, but
+do not add aliases or redirect stubs when a key changes. Prefer a more specific
+title mnemonic over an arbitrary numeric suffix when resolving a collision.
 
 ## Workflow
 
@@ -105,7 +102,7 @@ bun run registry:new -- 10.1007/BF02296131 \
 
 Use `--author-slug <slug>` only when the automatic surname transliteration
 needs correction. The script refuses duplicate normalized DOIs, duplicate
-current or aliased keys, invalid key shapes, and existing output files.
+current keys, invalid key shapes, and existing output files.
 
 The generated file intentionally has `status: stub`, empty authoring fields,
 and TODO markers. It is a working draft, not a finished registry record. Do
@@ -125,7 +122,6 @@ Required frontmatter fields are:
 | `topics` | Non-empty array of lowercase topic tags, matching topic pages where applicable |
 | `reviewed` | Real `YYYY-MM-DD` date on which the entry was written or last checked |
 | `description` | Useful summary for indexes, popovers, and the properties panel |
-| `aliases` | Optional array of former qpsy keys only, each written `./former-key` |
 
 The body must contain `Reference`, `Publisher abstract`, `Model`, and
 `Likelihood` sections. Follow these content rules:
@@ -165,26 +161,18 @@ The index/build path runs the same registry validation and regenerates
 `llms.txt`, `registry.json`, and `graph.json`. Validation rejects unfinished
 stubs and TODO markers as well as structural errors. These are build outputs;
 never hand-edit them. `registry.json` exposes current keys, normalized DOIs,
-normalized former-key aliases without the `./` prefix, bibliographic metadata,
-topics, and canonical URLs for agent lookup.
+bibliographic metadata, topics, and canonical URLs for agent lookup.
 
 Check the diff for unrelated work, temporary papers, TODOs, generated files,
 and accidental citation-key fields. Run `git diff --check`. For entries with
 mathematics, inspect the rendered page as well as the successful build.
 
-## Exceptional renames
+## Renames
 
-Avoid renaming a published entry. If a rename is unavoidable:
-
-1. Move the file with `git mv` so history is retained.
-2. Update `key` to equal the new basename.
-3. Add the former qpsy key as `./former-key` in `aliases`; retain all earlier
-   aliases.
-4. Update internal references to the new key.
-5. Confirm that Quartz emits the old-address redirect and that registry
-   validation finds no key/alias collisions.
-
-An alias is a permanent reservation. Never transfer it to another paper.
+When a key changes, move the file with `git mv`, update `key` to equal the new
+basename, update internal references, and rerun validation. Do not add aliases,
+redirect stubs, or historical URL checks; preserving human-facing URLs is not a
+registry goal.
 
 ## Completion standard
 

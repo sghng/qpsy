@@ -87,7 +87,7 @@ evaluated against real qpsy queries before new infrastructure is adopted.
 | `.quartz-engine/` | pinned Quartz engine, gitignored, fetched by `bun run bootstrap` |
 | `scripts/build-index.mjs` | generates `llms.txt`, `registry.json`, `graph.json`; enforces registry validation |
 | `scripts/new-registry-entry.mjs` | scaffolds a DOI-based entry from Crossref metadata |
-| `scripts/check-registry.mjs` | validates registry metadata, keys, aliases, DOIs, and required sections |
+| `scripts/check-registry.mjs` | validates registry metadata, keys, DOIs, and required sections |
 | `scripts/bootstrap-quartz.mjs` | fetches the pinned engine and links the project into it |
 | `tests/registry.test.mjs` | temporary-fixture tests for registry naming, scaffolding, and validation |
 | `wrangler.jsonc` | Cloudflare Worker configuration (source of truth for the deploy; push-to-main builds run via Cloudflare Workers Builds) |

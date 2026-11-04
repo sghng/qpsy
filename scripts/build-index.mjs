@@ -8,7 +8,7 @@
 // Runs AFTER the Quartz build (Quartz owns the public/ directory).
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { basename, join, relative } from 'node:path'
-import { normalizeDoi, normalizeRegistryAlias, parseFrontmatter, validateRegistry } from './lib/registry.mjs'
+import { normalizeDoi, parseFrontmatter, validateRegistry } from './lib/registry.mjs'
 
 const SITE = 'https://qpsy.dev'
 const CONTENT = 'content'
@@ -57,7 +57,6 @@ for (const file of walk(CONTENT)) {
       doi: normalizeDoi(fm.doi),
       model: fm.model,
       topics: Array.isArray(fm.topics) ? fm.topics : [],
-      aliases: Array.isArray(fm.aliases) ? fm.aliases.map(normalizeRegistryAlias) : [],
       reviewed: fm.reviewed,
       url,
     })

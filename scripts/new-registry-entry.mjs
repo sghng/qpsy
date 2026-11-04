@@ -9,7 +9,6 @@ import {
   isValidDoi,
   makeRegistryKey,
   normalizeDoi,
-  normalizeRegistryAlias,
   readRegistryRecords,
 } from './lib/registry.mjs'
 
@@ -110,7 +109,6 @@ function entrySource(metadata, key, reviewed) {
     doi: metadata.doi,
     model: '',
     topics: [],
-    aliases: [],
     reviewed,
     description: '',
     status: 'stub',
@@ -172,10 +170,8 @@ export async function createRegistryEntry({
     shortTitle,
   })
 
-  const claimed = existing.find((record) =>
-    record.fm.key === key ||
-    (Array.isArray(record.fm.aliases) && record.fm.aliases.some((alias) => normalizeRegistryAlias(alias) === key)))
-  if (claimed) throw new Error(`Registry key ${key} is already claimed by ${claimed.rel}`)
+  const claimed = existing.find((record) => record.fm.key === key)
+  if (claimed) throw new Error(`Registry key ${key} is already used by ${claimed.rel}`)
 
   const reviewed = today.toISOString().slice(0, 10)
   const path = join(registryDir, `${key}.md`)

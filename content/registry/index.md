@@ -20,7 +20,6 @@ full text; the DOI is the retrieval path.
 | `doi` | canonical external identity and retrieval path; metadata verified against Crossref |
 | `model` | short model name, what the paper characterizes |
 | `topics` | non-empty lowercase tags linking the entry to topic pages |
-| `aliases` | optional former qpsy keys in `./former-key` form; never citation or Zotero keys |
 | `reviewed` | date the entry was written or last checked |
 | `description` | summary used by indexes, popovers, and the properties panel |
 
@@ -31,9 +30,9 @@ things that basically characterize a model, plus the publisher abstract.
 
 New keys use lowercase ASCII kebab-case in the form
 `firstauthor-year-short-title`. The short title is a curated 2–4-word
-mnemonic, as in `joreskog-1994-polychoric-correlations`. Keys are frozen after
-publication; former keys use the `./former-key` form in `aliases` after an
-exceptional rename so Quartz redirects the old registry URL.
+mnemonic, as in `joreskog-1994-polychoric-correlations`. Avoid unnecessary
+renames, but the registry does not maintain aliases or redirects for old URLs;
+agents should use the current machine indexes.
 
 Better BibTeX and other personal citation keys are not registry fields. To
 find a corresponding Zotero item, match the normalized DOI first, then title,
