@@ -78,7 +78,8 @@ individual $n_j$, and the equal-$n$ version should not be assumed.
 
 The test's degrees of freedom are unchanged from the omnibus test: numerator
 $df_1 = a - 1$ and denominator $df_2 = N - a$ (the model-comparison quantities
-$df_R - df_F$ and $df_F$).
+$df_R - df_F$ and $df_F$); the full set of names for this pair is tabulated in
+[Crosswalk of ANOVA Quantities](/topics/anova/crosswalk).
 
 ## The two-step computation
 

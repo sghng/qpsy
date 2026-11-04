@@ -315,6 +315,9 @@ unequal variances but do not make a variance violation harmless.
 - [Model Comparison](/topics/anova/model-comparison) expresses each
   contrast test as a restricted-versus-full model comparison, of which the
   corrections above are error-control overlays.
+- [Crosswalk of ANOVA Quantities](/topics/anova/crosswalk) aligns the errors,
+  sums of squares, and degrees of freedom across naming traditions and
+  tabulates the degrees of freedom used by each of these procedures.
 - [ANOVA Power](/topics/anova/power) develops the omnibus-power framework;
   the critical-value comparisons in this note show the corresponding cost of
   multiplicity control.

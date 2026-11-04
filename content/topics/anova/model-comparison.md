@@ -157,7 +157,10 @@ perspectives produce the same statistic:
 
 The nested-model $F$ is thus exactly the classic $F = MS_B/MS_W$, whose
 derivation, assumptions, and summary-table conventions appear in
-[One-Way ANOVA](/topics/anova/one-way-anova).
+[One-Way ANOVA](/topics/anova/one-way-anova). The names for the degrees of
+freedom themselves — numerator and denominator, error, residual — and the
+df used by each follow-up procedure are collected in
+[Crosswalk of ANOVA Quantities](/topics/anova/crosswalk).
 
 ## Proportional error measures: PIE versus PRE
 

@@ -110,7 +110,10 @@ mean squares are not. Under the null hypothesis both mean squares estimate
 the same within-population variance, so their ratio tends to be near 1. When
 the population means differ, $MS_B$ additionally carries the systematic
 differences among groups and is inflated, while $MS_W$ continues to estimate
-only the within-population variance.
+only the within-population variance. The many names these degrees of freedom
+carry elsewhere — numerator and denominator df, df_error, model comparison's
+$df_F$ and $df_R$ — are aligned in
+[Crosswalk of ANOVA Quantities](/topics/anova/crosswalk).
 
 ## The F ratio and its distribution
 
@@ -252,6 +255,8 @@ with [linear contrasts](/topics/anova/contrasts) and
 - [Model comparison](/topics/anova/model-comparison) develops the same $F$
   test as a comparison between a restricted model with one common mean and a
   full model with separate group means.
+- [Crosswalk of ANOVA quantities](/topics/anova/crosswalk) aligns the errors,
+  sums of squares, and degrees of freedom across naming traditions.
 - [Linear contrasts](/topics/anova/contrasts) tests targeted questions about
   specific means or combinations of means.
 - [Multiple comparisons](/topics/anova/multiple-comparisons) covers

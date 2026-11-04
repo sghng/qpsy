@@ -15,6 +15,9 @@ questions into contrasts, multiplicity control, and design planning.
   and degrees-of-freedom partitions, the $F$ statistic, and assumptions.
 - [Model Comparison](/topics/anova/model-comparison): full and restricted models,
   squared-error fit, the nested-model $F$ test, and proportional error measures.
+- [Crosswalk of ANOVA Quantities](/topics/anova/crosswalk): one table aligning
+  errors, sums of squares, and degrees of freedom across naming traditions, and
+  where the degrees of freedom enter each test and correction procedure.
 - [Power for Omnibus ANOVA](/topics/anova/power): Cohen's $f$, the noncentral $F$
   distribution, and prospective power calculation.
 

@@ -139,7 +139,9 @@ under one linear restriction, $a-1$ means can still vary freely, but the
 restriction then determines the remaining mean. With
 $\tfrac12(\mu_1+\mu_2)=\mu_3$ and three groups, for instance, $\mu_1$ and
 $\mu_2$ can be anything, but $\mu_3$ is then forced to equal their average —
-only two of the three means are free.
+only two of the three means are free. How this one-numerator-df-per-restriction
+bookkeeping runs through every test and correction procedure is tabulated in
+[Crosswalk of ANOVA Quantities](/topics/anova/crosswalk).
 
 The full model here is the same full model the omnibus test uses. The full model
 is fixed by the design, not by the hypothesis: whichever comparison is tested,
