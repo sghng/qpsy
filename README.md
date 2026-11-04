@@ -32,6 +32,16 @@ Entries are neutral and evidence-bound rather than evaluative. Metadata is
 verified, DOIs provide the retrieval path, and qpsy is not a full-text archive.
 The registry supports both direct lookup and deeper synthesis across papers.
 
+Registry filenames use stable `firstauthor-year-short-title` keys with curated
+2–4-word title mnemonics. DOI and bibliographic metadata provide external and
+Zotero lookup; Better BibTeX keys are not part of the public schema. Use the
+`paper-registry` skill and these tools when maintaining entries:
+
+```sh
+bun run registry:new -- <doi> --short-title "<2–4 words>"
+bun run registry:check
+```
+
 ## Architecture and methodology
 
 ### Markdown is the source of truth
@@ -75,8 +85,11 @@ evaluated against real qpsy queries before new infrastructure is adopted.
 | `content/` | the canonical vault: `topics/`, `modeling/`, `research/`, `writing/`, `registry/`, the homepage, and notation |
 | `quartz.config.yaml` | publisher configuration (Quartz 5) |
 | `.quartz-engine/` | pinned Quartz engine, gitignored, fetched by `bun run bootstrap` |
-| `scripts/build-index.mjs` | generates `llms.txt`, `registry.json`, `graph.json` |
+| `scripts/build-index.mjs` | generates `llms.txt`, `registry.json`, `graph.json`; enforces registry validation |
+| `scripts/new-registry-entry.mjs` | scaffolds a DOI-based entry from Crossref metadata |
+| `scripts/check-registry.mjs` | validates registry metadata, keys, aliases, DOIs, and required sections |
 | `scripts/bootstrap-quartz.mjs` | fetches the pinned engine and links the project into it |
+| `tests/registry.test.mjs` | temporary-fixture tests for registry naming, scaffolding, and validation |
 | `wrangler.jsonc` | Cloudflare Worker configuration (source of truth for the deploy; push-to-main builds run via Cloudflare Workers Builds) |
 
 The publisher is not a fork: the engine is disposable tooling (like
@@ -88,8 +101,10 @@ Everything is maintained with Bun; never invoke npm or node directly.
 ```sh
 bun install
 bun run bootstrap  # fetch the pinned Quartz engine (once per engine version)
-bun run dev        # build and serve with hot reload
-bun run build      # full build into public/, then regenerate agent indexes
+bun run dev             # build and serve with hot reload
+bun run build           # full build into public/, then regenerate agent indexes
+bun run registry:check  # validate registry entries without a Quartz build
+bun test                # run registry and other repository tests
 ```
 
 ## License

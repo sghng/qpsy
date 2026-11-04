@@ -34,10 +34,22 @@ only on the qpsy-owned surfaces.
 
 ## Registry invariants
 
-One markdown file per paper under `registry/`, filename equal to `key`.
+One markdown file per paper under `content/registry/`, filename equal to `key`.
+Load `.agents/skills/paper-registry/SKILL.md` when creating or maintaining
+entries.
 
+- New keys are lowercase ASCII `firstauthor-year-short-title`; the curated
+  short-title mnemonic has 2–4 words. Freeze published keys and retain former
+  qpsy keys as `./former-key` entries in `aliases` so Quartz preserves the old
+  registry URL. Never add Better BibTeX or other citation-key fields.
+- DOI is the canonical external identity. Match Zotero items by normalized
+  DOI, then title/year/first author; broader matches require review.
 - Metadata (`title`, `authors`, `year`, `venue`, `doi`) is verified against
   Crossref before committing. Do not trust recalled DOIs.
+- Scaffold with `bun run registry:new -- <doi> --short-title "<2–4 words>"`.
+  Complete and verify the stub before committing; validation rejects leftover
+  stubs and TODO markers. Run `bun run registry:check`, `bun test`, and
+  `bun run build`; temporary dummy entries must not remain in the registry.
 - Entries are descriptive only. No personal assessment, no verdicts.
 - The publisher abstract is quoted verbatim, inside a blockquote, under the
   heading "Publisher abstract", with the DOI link in the Reference section.

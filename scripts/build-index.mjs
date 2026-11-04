@@ -7,7 +7,8 @@
 // Zero dependencies. Run with `bun run index`; part of dev/build.
 // Runs AFTER the Quartz build (Quartz owns the public/ directory).
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import { join, relative } from 'node:path'
+import { basename, join, relative } from 'node:path'
+import { normalizeDoi, normalizeRegistryAlias, parseFrontmatter, validateRegistry } from './lib/registry.mjs'
 
 const SITE = 'https://qpsy.dev'
 const CONTENT = 'content'
@@ -23,30 +24,6 @@ function walk(dir) {
   return files
 }
 
-// Minimal flat frontmatter parser: `key: value` and `key: [a, b]` lines only.
-function parseFrontmatter(text) {
-  if (!text.startsWith('---\n')) return [{}, text]
-  const end = text.indexOf('\n---\n', 3)
-  if (end === -1) return [{}, text]
-  const fm = {}
-  for (const line of text.slice(4, end).split('\n')) {
-    const m = line.match(/^([A-Za-z][\w-]*):\s*(.*)$/)
-    if (!m) continue
-    let value = m[2].trim()
-    if (value.startsWith('[') && value.endsWith(']')) {
-      value = value
-        .slice(1, -1)
-        .split(',')
-        .map((s) => s.trim().replace(/^["']|["']$/g, ''))
-        .filter(Boolean)
-    } else if (/^["'].*["']$/.test(value)) {
-      value = value.slice(1, -1)
-    }
-    fm[m[1]] = value
-  }
-  return [fm, text.slice(end + 5)]
-}
-
 // Quartz slug: path relative to content/, .md dropped. Root index.md is the
 // homepage; a folder's index.md emits at the folder URL WITH trailing slash
 // (directory-index layout), matching the canonical emitted URLs exactly.
@@ -59,6 +36,7 @@ function slugFor(rel) {
 
 const pages = []
 const entries = []
+const registryRecords = []
 const slugs = new Set()
 
 for (const file of walk(CONTENT)) {
@@ -69,18 +47,17 @@ for (const file of walk(CONTENT)) {
   const title = fm.title || (body.match(/^#\s+(.+)$/m) || [])[1] || rel
   pages.push({ url, title, description: fm.description || '', stub: fm.status === 'stub', rel, body })
   if (rel.startsWith('registry/') && rel !== 'registry/index.md') {
-    for (const field of ['key', 'title', 'authors', 'year', 'venue', 'doi', 'model', 'reviewed']) {
-      if (!fm[field]) console.warn(`[warn] ${rel}: missing registry field "${field}"`)
-    }
+    registryRecords.push({ rel, basename: basename(file, '.md'), fm, body, parseError: null })
     entries.push({
       key: fm.key,
       title: fm.title,
       authors: fm.authors,
       year: fm.year ? Number(fm.year) : null,
       venue: fm.venue,
-      doi: fm.doi,
+      doi: normalizeDoi(fm.doi),
       model: fm.model,
       topics: Array.isArray(fm.topics) ? fm.topics : [],
+      aliases: Array.isArray(fm.aliases) ? fm.aliases.map(normalizeRegistryAlias) : [],
       reviewed: fm.reviewed,
       url,
     })
@@ -89,6 +66,14 @@ for (const file of walk(CONTENT)) {
 
 pages.sort((a, b) => a.url.localeCompare(b.url))
 entries.sort((a, b) => String(a.key).localeCompare(String(b.key)))
+
+const registryErrors = validateRegistry(registryRecords)
+if (registryErrors.length > 0) {
+  console.error(`Registry validation failed with ${registryErrors.length} error(s):`)
+  for (const error of registryErrors) console.error(`  ${error}`)
+  process.exit(1)
+}
+console.log(`registry check: ${registryRecords.length} ${registryRecords.length === 1 ? 'entry' : 'entries'} valid`)
 
 // Link graph: internal markdown links and wikilinks, resolved to slugs.
 const bySlug = new Map(pages.map((p) => [p.url, p]))
@@ -114,7 +99,7 @@ for (const p of pages) {
   }
 }
 
-const registryPages = pages.filter((p) => p.url.startsWith('/registry/') && p.url !== '/registry')
+const registryIndex = pages.find((p) => p.url === '/registry/')
 const normalPages = pages.filter((p) => !p.url.startsWith('/registry/'))
 
 let llms = `# qpsy
@@ -144,6 +129,9 @@ publisher abstract verbatim with attribution, and links the DOI. Entries are
 descriptive only and never contain full text.
 
 `
+if (registryIndex) {
+  llms += `- [Registry schema and authoring workflow](${SITE}/registry/): ${registryIndex.description}\n`
+}
 for (const e of entries) {
   llms += `- [${e.key}: ${e.title}](${SITE}${e.url}): ${e.authors} (${e.year}), ${e.venue}. Model: ${e.model}. doi:${e.doi}\n`
 }

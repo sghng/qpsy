@@ -1,12 +1,13 @@
 ---
-key: joreskog-1994
+key: joreskog-1994-polychoric-correlations
 title: On the Estimation of Polychoric Correlations and their Asymptotic Covariance Matrix
 authors: Jöreskog, Karl G.
 year: 1994
 venue: Psychometrika
 doi: 10.1007/BF02296131
 model: Polychoric correlation, two-step
-topics: [ordinal data, correlation structure, SEM]
+topics: [ordinal data, correlation structure, sem]
+aliases: [./joreskog-1994]
 reviewed: 2026-10-13
 description: Two-step polychoric estimation with the asymptotic covariance matrix SEM weight matrices consume
 ---

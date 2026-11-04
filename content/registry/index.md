@@ -15,20 +15,47 @@ full text; the DOI is the retrieval path.
 
 | Field | Meaning |
 | --- | --- |
-| `key` | short stable identifier, `firstauthor-year` |
+| `key` | stable qpsy identifier, `firstauthor-year-short-title`, equal to the filename basename |
 | `title`, `authors`, `year`, `venue` | bibliographic fields |
-| `doi` | the retrieval path; metadata verified against Crossref |
+| `doi` | canonical external identity and retrieval path; metadata verified against Crossref |
 | `model` | short model name, what the paper characterizes |
-| `topics` | tags linking the entry to topic pages |
+| `topics` | non-empty lowercase tags linking the entry to topic pages |
+| `aliases` | optional former qpsy keys in `./former-key` form; never citation or Zotero keys |
 | `reviewed` | date the entry was written or last checked |
+| `description` | summary used by indexes, popovers, and the properties panel |
 
 Entry pages carry the model description and the likelihood function, the two
 things that basically characterize a model, plus the publisher abstract.
 
+## Naming and external lookup
+
+New keys use lowercase ASCII kebab-case in the form
+`firstauthor-year-short-title`. The short title is a curated 2–4-word
+mnemonic, as in `joreskog-1994-polychoric-correlations`. Keys are frozen after
+publication; former keys use the `./former-key` form in `aliases` after an
+exceptional rename so Quartz redirects the old registry URL.
+
+Better BibTeX and other personal citation keys are not registry fields. To
+find a corresponding Zotero item, match the normalized DOI first, then title,
+year, and first author. Broader title matches require review rather than
+silent selection.
+
 ## Adding an entry
 
-1. Verify metadata against Crossref for the DOI.
-2. Create `registry/<key>.md` with the frontmatter schema above.
-3. Write Model and Likelihood sections; quote the abstract verbatim under
-   "Publisher abstract".
-4. Run `bun run index`; the table, `registry.json`, and `llms.txt` regenerate.
+1. Search for an existing normalized DOI or bibliographic match.
+2. Scaffold the entry from Crossref with a curated title mnemonic:
+
+   ```sh
+   bun run registry:new -- <doi> --short-title "<2–4 words>"
+   ```
+
+3. Inspect the Crossref metadata, complete every required field, and replace
+   all TODO markers with verified content. Quote the publisher abstract
+   verbatim under "Publisher abstract"; remove `status: stub` only when the
+   entry is complete.
+4. Run `bun run registry:check` for structural validation, then `bun test`
+   and `bun run build`. The build regenerates `registry.json`, `llms.txt`,
+   and `graph.json`; never hand-edit those outputs.
+
+The full authoring and reconciliation workflow is in
+`.agents/skills/paper-registry/SKILL.md`.
