@@ -163,6 +163,13 @@ it in Python or R — a scratch script or REPL session is enough — and keep th
 script or transcript with the working notes; record source errors rather than
 propagating them or silently correcting them inside a quotation.
 
+When extraction garbles an equation but leaves a worked numeric example
+legible, recompute that example under candidate readings. Agreement or
+mismatch can diagnose missing radical signs, exponents, or fraction bars and
+focus the visual check. Treat this as diagnostic evidence, not as a substitute
+for inspecting the original equation; record the extraction failure and verify
+the original before reusing the formula.
+
 When the materials are unclear or wrong, consult an authoritative primary
 source. Verify paper metadata and DOIs before citing them. Keep a distinction
 between faithfully reporting a source's simplification and writing the more
