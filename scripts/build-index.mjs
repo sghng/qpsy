@@ -9,6 +9,7 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { basename, join, relative } from 'node:path'
 import { normalizeDoi, parseFrontmatter, validateRegistry } from './lib/registry.mjs'
+import { findResidualWikilinks } from './lib/render-checks.mjs'
 
 const SITE = 'https://qpsy.dev'
 const CONTENT = 'content'
@@ -124,8 +125,8 @@ llms += `
 ## Registry
 
 Each entry page describes the model and the likelihood function, quotes the
-publisher abstract verbatim with attribution, and links the DOI. Entries are
-descriptive only and never contain full text.
+publisher abstract or official extract verbatim with attribution, and links
+the DOI. Entries are descriptive only and never contain full text.
 
 `
 if (registryIndex) {
@@ -191,6 +192,34 @@ const graph = {
     process.exit(1)
   }
   console.log('math check: all display blocks render as katex-display')
+}
+
+// Guard: an unresolved wikilink can survive the Quartz build as literal text,
+// for example when its alias spans lines. Fail on visible [[ or ]] delimiters;
+// documented syntax inside code/pre/script/style blocks is allowed.
+{
+  const bad = []
+  const walkHtml = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name.startsWith('.')) continue
+      const path = join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walkHtml(path)
+      } else if (entry.name.endsWith('.html')) {
+        const findings = findResidualWikilinks(readFileSync(path, 'utf8'))
+        if (findings.length > 0) {
+          bad.push(`${relative('public', path)}: ${findings.join('; ')}`)
+        }
+      }
+    }
+  }
+  if (existsSync('public')) walkHtml('public')
+  if (bad.length > 0) {
+    console.error(`link check FAILED: unresolved wikilink delimiter(s) in ${bad.length} page(s):`)
+    for (const p of bad) console.error(`  ${p}`)
+    process.exit(1)
+  }
+  console.log('link check: no unresolved wikilink delimiters in emitted HTML')
 }
 
 mkdirSync('public', { recursive: true })

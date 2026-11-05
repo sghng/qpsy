@@ -35,6 +35,22 @@ qpsy-owned machine surfaces — `llms.txt`, `registry.json`, and `graph.json`
 `contentIndex.json` is a renderer artifact; agents and tooling must depend
 only on the qpsy-owned surfaces.
 
+## Ingestion routing
+
+Route by deliverable, not by source format or source count:
+
+| Request | Deliverable | Skill |
+| --- | --- | --- |
+| Ingest, add, or register one or more papers | One verified record per paper | `paper-registry` |
+| Synthesize papers, books, slides, websites, or mixed materials | Integrated concept or topic notes | `concept-synthesis` |
+| Create paper records and a concept note | Both, in two passes | Registry first, synthesis second |
+
+Load `.agents/skills/paper-registry/SKILL.md` for paper records and
+`.agents/skills/concept-synthesis/SKILL.md` for concept-note synthesis. Concept
+notes cite sources by DOI and link relevant registry entries without
+reproducing their abstracts or paper-level summaries. A registry entry is not
+required merely to cite a source in a concept note.
+
 ## Registry invariants
 
 One markdown file per paper under `content/registry/`, filename equal to `key`.
@@ -54,9 +70,12 @@ entries.
   stubs and TODO markers. Run `bun run registry:check`, `bun test`, and
   `bun run build`; temporary dummy entries must not remain in the registry.
 - Entries are descriptive only. No personal assessment, no verdicts.
-- The publisher abstract is quoted verbatim, inside a blockquote, under the
-  heading "Publisher abstract", with the DOI link in the Reference section.
-- Never include full text or any excerpt beyond the abstract.
+- The publisher abstract or officially supplied extract is quoted verbatim,
+  inside a blockquote, under the heading "Publisher abstract", with the DOI
+  link in the Reference section. Label extracts as such. If the publisher
+  supplies neither, state that explicitly; never substitute the paper's
+  introduction or a generated summary.
+- Never include full text or any excerpt beyond the abstract or extract.
 - Every entry carries Model and Likelihood sections; these two characterize
   the model. Math uses `$...$` and `$$...$$` (rendered by KaTeX via Quartz).
 - `topics` values are lowercase tags matching topic pages where applicable.
@@ -80,7 +99,9 @@ entries.
   as `katex-display` (checked by scripts/build-index.mjs).
 - Internal links: wikilinks (`[[page]]`) are the vault-native form; absolute
   Markdown links (`/topics/foundations/probability`) also resolve. Folder
-  pages link with a trailing slash (`/topics/anova/`).
+  pages link with a trailing slash (`/topics/anova/`). Builds fail on visible
+  unresolved `[[` or `]]` delimiters in emitted HTML, excluding documented
+  syntax inside code/pre/script/style blocks.
 - Canonical book and standalone-resource pointers pair a direct link to their
   entry in `content/resources.md` with an inline nested tag
   (`#ref/<source>`); repeat the same tag in the resource entry. Papers use DOI

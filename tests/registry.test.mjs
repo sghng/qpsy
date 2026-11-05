@@ -12,6 +12,7 @@ import {
   slugify,
   validateRegistry,
 } from '../scripts/lib/registry.mjs'
+import { findResidualWikilinks } from '../scripts/lib/render-checks.mjs'
 import {
   bibliographicMetadata,
   createRegistryEntry,
@@ -308,5 +309,28 @@ describe('Crossref entry scaffolding', () => {
       fetchImpl,
     })).rejects.toThrow()
     expect(readFileSync(path, 'utf8')).toBe(original)
+  })
+})
+
+describe('rendered wikilink checks', () => {
+  test('rejects unresolved opening and closing delimiters in visible HTML', () => {
+    const opening = findResidualWikilinks('<p>[[unresolved-opening-delimiter</p>')
+    expect(opening).toHaveLength(1)
+    expect(opening[0]).toContain('[[')
+
+    const closing = findResidualWikilinks('<p>alias with a split closing delimiter]]</p>')
+    expect(closing).toHaveLength(1)
+    expect(closing[0]).toContain(']]')
+  })
+
+  test('allows documented wikilink syntax inside code and pre blocks', () => {
+    const html = `
+      <p>Resolved prose.</p>
+      <pre><code>[[documented-wikilink|Example]]</code></pre>
+      <p><code>[[inline-example]]</code></p>
+      <script>const example = '[[script-example]]'</script>
+      <style>.example::before { content: '[[style-example]]' }</style>
+    `
+    expect(findResidualWikilinks(html)).toEqual([])
   })
 })

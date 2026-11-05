@@ -126,7 +126,9 @@ ${metadata.authors} (${metadata.year}). ${metadata.title}. *${metadata.venue}*.
 
 ## Publisher abstract
 
-TODO: Copy the publisher abstract verbatim inside a blockquote. Check the
+TODO: Copy the publisher abstract or official extract verbatim inside a
+blockquote, labeling extracts as such. If the publisher supplies neither,
+state that explicitly rather than substituting the introduction. Check the
 publisher source rather than trusting markup or wording in an API response.
 
 ## Model

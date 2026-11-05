@@ -6,8 +6,8 @@ description: Structured entries for reviewed papers
 
 The registry records papers reviewed for research, one page per paper.
 Entries are descriptive only: the model, the likelihood function, and the
-publisher abstract quoted verbatim with attribution. Entries never contain
-full text; the DOI is the retrieval path.
+publisher abstract or officially supplied extract quoted verbatim with
+attribution. Entries never contain full text; the DOI is the retrieval path.
 
 <RegistryTable />
 
@@ -24,7 +24,8 @@ full text; the DOI is the retrieval path.
 | `description` | summary used by indexes, popovers, and the properties panel |
 
 Entry pages carry the model description and the likelihood function, the two
-things that basically characterize a model, plus the publisher abstract.
+things that basically characterize a model, plus the publisher abstract or
+officially supplied extract.
 
 ## Naming and external lookup
 
@@ -49,9 +50,11 @@ silent selection.
    ```
 
 3. Inspect the Crossref metadata, complete every required field, and replace
-   all TODO markers with verified content. Quote the publisher abstract
-   verbatim under "Publisher abstract"; remove `status: stub` only when the
-   entry is complete.
+   all TODO markers with verified content. Quote the publisher abstract or
+   official extract verbatim under "Publisher abstract", labeling extracts as
+   such. If the publisher supplies neither, state that explicitly rather than
+   substituting the introduction. Remove `status: stub` only when the entry is
+   complete.
 4. Run `bun run registry:check` for structural validation, then `bun test`
    and `bun run build`. The build regenerates `registry.json`, `llms.txt`,
    and `graph.json`; never hand-edit those outputs.

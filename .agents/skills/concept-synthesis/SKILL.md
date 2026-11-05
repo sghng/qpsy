@@ -1,22 +1,38 @@
 ---
-name: material-ingestion
-description: Ingest source materials of any format into durable, linked qpsy concept notes. Use when synthesizing a collection of external materials, designing note boundaries from sources, or coordinating parallel readers and writers. Do not use for a routine single-paper registry entry, a summary that will not become repository content, or unsourced writing from scratch.
+name: concept-synthesis
+description: Synthesize papers, books, slides, websites, or mixed materials into durable, linked qpsy concept notes. Use when the deliverable is an integrated explanation, topic page, or note map rather than one page per source. Includes source inventories, evidence ledgers, concept-survival audits, and coordinated synthesis. Not for routine one-page-per-paper registry entries.
 ---
 
-# Material Ingestion
+# Concept Synthesis
 
 Turn source materials into durable knowledge, not a transcript or a set of
 per-document summaries. Preserve evidence and provenance during ingestion,
 then organize the public notes around concepts and their relationships.
 
 The methodology is format-independent. Materials arrive in whatever form the
-user supplies — files, books, articles, web pages, or mixed collections — and
-no particular source type, directory layout, or extraction toolchain is
-assumed. Choose extraction mechanics per job; the workflow below governs
-evidence handling and synthesis regardless of format.
+user supplies — files, books, articles, web pages, slide decks, lecture notes,
+or mixed collections — and no particular source type, directory layout, or
+extraction toolchain is assumed. Choose extraction mechanics per job; the
+workflow below governs evidence handling and synthesis regardless of format.
+Concept notes include procedures, equations, and table-reading conventions as
+well as definitions.
 
 Follow the repository conventions in `AGENTS.md` and load `obsidian-markdown`
 when authoring Obsidian-shaped content.
+
+## Scope and routing
+
+Use this skill when the deliverable is an integrated concept or topic note.
+Routine requests to ingest, add, or register one or more papers as individual
+paper records use `paper-registry` instead. The number and format of the
+sources do not decide the skill; the deliverable does.
+
+For a request that needs both paper records and a concept note, work in two
+passes. Create or update the desired records with `paper-registry`, then
+synthesize the concept note here. Cite sources by DOI and link relevant
+registry entries rather than reproducing their abstracts or paper-level
+summaries. Registry entries are not mandatory prerequisites for citing a
+source in a concept note.
 
 ## Principles
 

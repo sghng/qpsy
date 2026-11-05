@@ -1,6 +1,6 @@
 ---
 name: paper-registry
-description: Create, reconcile, rename, and validate qpsy paper-registry entries using verified bibliographic metadata, semantic author-year-title keys, DOI-based identity, and neutral methodological summaries. Use when registering a paper, finding its registry entry or corresponding Zotero item, changing registry identity, or repairing registry validation. Do not use for multi-source concept-note synthesis (use material-ingestion) or for merely citing a paper without maintaining the registry.
+description: Ingest, register, reconcile, rename, and validate specific papers as individual qpsy registry entries. Use for ingest/add/register-paper requests when the deliverable is one page per paper, with verified metadata, a publisher abstract or extract, Model, and Likelihood. Do not use for integrated concept or topic notes (use concept-synthesis) or for merely citing a paper without maintaining the registry.
 ---
 
 # Paper Registry
@@ -10,9 +10,13 @@ public methodological knowledge base, not a mirror of a personal bibliography.
 Keep local page identity, external bibliographic identity, and Zotero lookup
 separate.
 
-Follow `AGENTS.md` and load `obsidian-markdown` when authoring entries. For a
-collection of sources being synthesized into concept notes rather than routine
-one-page-per-paper records, use `material-ingestion` as well.
+Follow `AGENTS.md` and load `obsidian-markdown` when authoring entries. Use
+this skill for routine requests to ingest, add, or register one or more papers
+as individual records. When the deliverable is an integrated concept or topic
+note rather than one page per source, use `concept-synthesis` instead. For a
+request that needs both paper records and a concept note, complete the registry
+pass first and then the synthesis pass; concept notes cite DOIs and link
+registry entries rather than duplicating their content.
 
 ## Identity model
 
@@ -127,14 +131,26 @@ The body must contain `Reference`, `Publisher abstract`, `Model`, and
 `Likelihood` sections. Follow these content rules:
 
 - Give a DOI link in `Reference`; cite by DOI rather than memory.
-- Copy the publisher abstract verbatim under `Publisher abstract`, inside a
-  blockquote. Check the publisher source; do not silently convert or trust
-  markup from an API response.
-- Never include full text or an excerpt beyond the abstract.
+- Copy the publisher abstract or officially supplied extract verbatim under
+  `Publisher abstract`, inside a blockquote. Label an extract as such. Check
+  the publisher source; do not silently convert or trust markup from an API
+  response. If the publisher supplies neither an abstract nor an extract,
+  state that explicitly and never substitute the paper's introduction or a
+  generated summary. Crossref can corroborate publisher wording but is not a
+  substitute for publisher inspection.
+- Never include full text or an excerpt beyond the abstract or extract.
 - Define the model, central equations, symbols, and assumptions. Use `$...$`
-  for inline math and fenced `$$` blocks for display math.
-- State the likelihood and relevant estimation structure. Clearly distinguish
-  reconstruction from equations explicitly given in the paper.
+  for inline math and fenced `$$` blocks for display math. If equation
+  extraction is garbled or glyph identity is uncertain, verify the original
+  visually before publishing it; cross-source reconstruction alone is not
+  visual verification.
+- State the likelihood and relevant estimation structure faithfully to the
+  source's estimands and algorithms. Do not infer modern MML, EM, or item
+  calibration from a model's later descendants. Distinguish equations given
+  in the main text, equations from supplementary material, and reconstructions.
+- Keep the default entry focused on Model and Likelihood. Add a standalone
+  Derivation section only when requested or when it is central to
+  understanding the paper, and label reconstructed algebra explicitly.
 - Add only descriptive methodological notes and relationships. No personal
   assessments, verdicts, private paths, or project-specific logistics.
 - Link related papers and concepts with their qpsy keys or vault-native
