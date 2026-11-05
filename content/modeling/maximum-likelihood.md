@@ -4,6 +4,8 @@ description: The likelihood and log-likelihood, score and Fisher information, in
 
 # Maximum Likelihood Estimation
 
+**Canonical reference:** [Casella & Berger, *Statistical Inference*](/resources#statistical-inference) #ref/casella-berger
+
 Maximum likelihood is the most widely used method of
 [point estimation](/modeling/estimation): choose the parameter value under
 which the observed data are most probable. For an iid sample

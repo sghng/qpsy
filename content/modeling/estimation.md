@@ -4,6 +4,8 @@ description: What parameter estimation is, how estimators are judged (bias, vari
 
 # Parameter Estimation
 
+**Canonical reference:** [Casella & Berger, *Statistical Inference*](/resources#statistical-inference) #ref/casella-berger
+
 Estimation is step 4 of the [modeling workflow](/modeling/): once a model
 $p(\mathbf{X} \mid \boldsymbol{\theta})$ is specified and identified, the data
 are used to choose a value for $\boldsymbol{\theta}$. Three terms deserve

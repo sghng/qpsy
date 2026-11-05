@@ -19,6 +19,32 @@ is already abundant in model weights, textbooks, and reference sites; qpsy
 holds only the curated layer — what a method is for, when it fits a design,
 and what it costs to use.
 
+## Copyright and retrieval quality
+
+For copyright reasons, qpsy does not reproduce the full text of any paper or
+book. It provides curated notes, bibliographic references, and DOI links for
+retrieval through your own access path. The [Resources](/resources) page lists the
+canonical textbooks and reference works used in the vault.
+
+Retrieval from qpsy alone is limited by the vault's coverage and by the passages
+a retriever returns; relevant context in the primary sources may be missed. For
+maximum accuracy, comprehensiveness, and utility, we recommend this personal
+retrieval-augmented generation (RAG) setup:
+
+1. **Connect your agent to qpsy.** Use the
+   [Context7 MCP](https://context7.com/installation) with `/sghng/qpsy`.
+2. **Connect your agent to Zotero.** Set up
+   [Zotero MCP](https://stevenyuyy.com/zotero-mcp/) for your own Zotero library.
+3. **Make the primary sources searchable.** Add your own full-text PDFs of the
+   [canonical resources](/resources) and papers to Zotero, then enable Zotero
+   MCP's semantic search.
+
+Instruct your agent to consult the actual resources whenever it needs detail
+that is not available in qpsy. The vault supplies the curated map; your Zotero
+library supplies the primary text without that text being republished here.
+
+*Zotero MCP capabilities last verified: November 4, 2026.*
+
 ## Using qpsy
 
 The intended way in: give qpsy.dev to an agent or chatbot and let it show
@@ -78,6 +104,8 @@ to that MCP.
   specification and likelihood through estimation and fit.
 - [Research](/research/): methodology, pipeline, venues, and peer review.
 - [Academic Writing](/writing/): style and reporting conventions.
+- [Resources](/resources): canonical textbooks and reference works, with source
+  tags and external retrieval links.
 - [Registry](/registry/): structured entries for reviewed papers, descriptive
   only, with the DOI as the retrieval path.
 

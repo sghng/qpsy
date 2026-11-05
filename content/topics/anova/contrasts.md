@@ -4,6 +4,8 @@ description: Linear contrasts of group means — coefficient choice and normaliz
 
 # Linear Contrasts
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 A significant omnibus $F$ test says the group means are not all equal, but it does
 not say where the differences lie. Most research questions are more specific than
 the omnibus hypothesis: does one treatment differ from another, or does the average

@@ -4,6 +4,8 @@ description: ANOVA as a comparison of full and restricted models — prediction 
 
 # Model Comparison
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 The classic treatment of one-way ANOVA describes a ratio of between-group to
 within-group variability. The same test statistic arises from a different
 starting point: put the null and alternative hypotheses into two statistical

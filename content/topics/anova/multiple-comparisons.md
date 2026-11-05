@@ -4,6 +4,8 @@ description: Per-comparison, familywise, and false-discovery error rates; planne
 
 # Multiple Comparisons
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 Testing several comparisons in one study multiplies the opportunities for a
 Type I error: each contrast evaluated at $\alpha = .05$ is a fresh
 $.05$-probability chance of rejecting a true null. Multiple-comparison

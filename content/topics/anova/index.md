@@ -4,6 +4,8 @@ description: Analysis of variance through sums of squares, model comparison, con
 
 # Analysis of Variance
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 Analysis of variance (ANOVA) compares models for group means by partitioning
 variability or, equivalently, by comparing the errors of restricted and full
 models. These notes develop that shared logic and then follow specific research

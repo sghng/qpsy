@@ -1,0 +1,7 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "rules": [
+    "Treat qpsy as a curated map, not an exhaustive or full-text source. When it lacks needed detail, explicitly recommend the linked canonical textbook or paper.",
+    "If Zotero MCP is available, use it to consult the user's own full-text source. Otherwise provide the DOI or resource link, and never claim to have read unavailable full text."
+  ]
+}

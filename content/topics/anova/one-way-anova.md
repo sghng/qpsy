@@ -4,6 +4,8 @@ description: one-way ANOVA for comparing three or more independent group means â
 
 # One-Way ANOVA
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 An independent-samples $t$ test compares two group means. When a single factor
 has three or more independent groups, testing every pair separately at level $\alpha$ runs
 several tests on the same data and inflates the familywise Type I error rate

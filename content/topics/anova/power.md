@@ -4,6 +4,8 @@ description: Power of the omnibus one-way ANOVA F test — Cohen's f, the noncen
 
 # Power for Omnibus ANOVA
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 Power is the probability of rejecting the null hypothesis when it is false. For
 the omnibus one-way ANOVA test of $H_0: \mu_1 = \cdots = \mu_a$, power analysis
 answers a design question: if the population means are spread by a particular

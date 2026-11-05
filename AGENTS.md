@@ -16,6 +16,9 @@ The repository root is a Quartz *project*; see README.md for the table.
 - `quartz.config.yaml` is the committed publisher configuration; plugin
   versions are pinned in `scripts/bootstrap-quartz.mjs` (npm-sourced,
   prebuilt).
+- `context7.json` is the repository-owned Context7 library configuration,
+  including the rules returned to agents with retrieved documentation. Changes
+  require a Context7 refresh after the repository configuration is published.
 - `.quartz-engine/` is the pinned Quartz engine, gitignored build tooling
   fetched by `bun run bootstrap` (`scripts/bootstrap-quartz.mjs`). Never
   edit or commit it; upgrades happen by bumping the pin in that script.
@@ -78,6 +81,10 @@ entries.
 - Internal links: wikilinks (`[[page]]`) are the vault-native form; absolute
   Markdown links (`/topics/foundations/probability`) also resolve. Folder
   pages link with a trailing slash (`/topics/anova/`).
+- Canonical book and standalone-resource pointers pair a direct link to their
+  entry in `content/resources.md` with an inline nested tag
+  (`#ref/<source>`); repeat the same tag in the resource entry. Papers use DOI
+  links and do not require registry entries merely because they are cited.
 - A page carries `status: stub` in frontmatter until its content is real.
   Remove the marker when the page is filled in.
 - Volatile pages (venue comparisons, process descriptions) carry a visible

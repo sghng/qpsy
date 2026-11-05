@@ -4,6 +4,8 @@ description: Crosswalk of ANOVA quantities across traditions — full- and restr
 
 # Crosswalk of ANOVA Quantities
 
+**Canonical reference:** [Maxwell, Delaney, & Kelley (MDK)](/resources#designing-experiments-and-analyzing-data) #ref/mdk
+
 Every test in this collection is built from the same small set of quantities, but
 each tradition leaves a different name behind. The model-comparison tradition
 speaks of full and restricted models and their errors; the classic ANOVA

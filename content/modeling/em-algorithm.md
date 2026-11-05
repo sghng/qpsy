@@ -4,6 +4,8 @@ description: The expectation–maximization algorithm for ML and MAP estimation 
 
 # The EM Algorithm
 
+**Canonical reference:** [Casella & Berger, *Statistical Inference*](/resources#statistical-inference) #ref/casella-berger
+
 The expectation–maximization (EM) algorithm computes
 [maximum likelihood](/modeling/maximum-likelihood) (or MAP) estimates when
 the model involves **latent variables or missing data**. The observed-data
