@@ -44,3 +44,18 @@ Analyzing Data: A Model Comparison Perspective*. 3rd ed. Routledge, 2018.
 
 Canonical reference for the [Analysis of Variance](/topics/anova/) collection,
 including model comparison, contrasts, multiple comparisons, and power.
+
+## Professional standards
+
+### Standards for Educational and Psychological Testing
+
+American Educational Research Association, American Psychological Association,
+and National Council on Measurement in Education. *Standards for Educational
+and Psychological Testing*. 2014.
+[Open-access editions](https://www.testingstandards.net/open-access-files.html)
+#ref/standards
+
+Canonical professional reference for the [Psychological
+Measurement](/topics/measurement/) collection, especially intended score uses
+and interpretations, validity evidence, reliability and precision, fairness,
+and test design and development.

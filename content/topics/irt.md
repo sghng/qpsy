@@ -14,7 +14,9 @@ cross-group comparability all rest on it.
 
 IRT suits settings where the items are exchangeable probes of one trait and
 person and item parameters both matter. When only the sum score matters and
-items are few, classical test theory is often enough.
+items are few, [classical test theory](/topics/measurement/classical-test-theory)
+and [classical item analysis](/topics/measurement/item-analysis) are often
+sufficient.
 
 ## Core models
 

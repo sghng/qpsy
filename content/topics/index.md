@@ -12,6 +12,7 @@ assumptions, and its relationships to other methods.
 
 - [Analysis of Variance](/topics/anova/)
 - [Cognitive Diagnosis Models](/topics/cdm)
+- [Psychological Measurement](/topics/measurement/)
 - [Item Response Theory](/topics/irt)
 
 ## Foundations
