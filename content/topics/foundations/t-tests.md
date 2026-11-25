@@ -133,7 +133,10 @@ number of pairs. Because stable individual differences cancel inside each
 $D_i$, the standard error of $\bar{D}$ can be much smaller than that of an
 independent-samples comparison of the same conditions — though the gain
 depends on how strongly the paired measurements correlate, and is not
-guaranteed.
+guaranteed. With more than two repeated conditions, the
+[Repeated-Measures Comparisons](/topics/anova/repeated-measures-comparisons)
+page extends the same participant-specific difference logic to pairwise and
+complex contrasts.
 
 ## Assumptions by design
 

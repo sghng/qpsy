@@ -1,5 +1,5 @@
 ---
-description: Crosswalk of ANOVA quantities across traditions — full- and restricted-model errors, within/between/total sums of squares, and numerator, denominator, error, and residual degrees of freedom — and where the degrees of freedom enter the omnibus test, contrasts, and the Bonferroni, Tukey, and Scheffé procedures
+description: Crosswalk of ANOVA quantities across traditions — full- and restricted-model errors, sums of squares, and degrees of freedom for one-way, factorial, and repeated-measures designs — and where the degrees of freedom enter omnibus tests, contrasts, and multiple-comparison procedures
 ---
 
 # Crosswalk of ANOVA Quantities
@@ -142,10 +142,50 @@ Three consequences of the table:
   region under the noncentral $F$ with the same $(a-1,\,N-a)$ degrees of
   freedom ([Power for Omnibus ANOVA](/topics/anova/power)).
 
-The pattern extends to factorial designs unchanged in form: each effect — a
-main effect, an interaction — carries its own numerator df (for an
-interaction, $(a-1)(b-1)$) counting its restrictions, while all effects are
-judged against the one pooled error term with its single denominator df.
+## Extensions to factorial and repeated-measures designs
+
+The pattern extends to other ANOVA designs unchanged in form: each restriction
+carries its own error increase and numerator df, while the full model supplies
+one error term and denominator df. The names of those quantities change with
+the design.
+
+| Design and restriction | Full-model error $E_F$ | Denominator $df_F$ | Error increase $E_R-E_F$ | Numerator df |
+|---|---|---|---|---|
+| Balanced two-way, main effect $A$ | $SS_W$ | $N-ab$ | $SS_A$ | $a-1$ |
+| Balanced two-way, main effect $B$ | $SS_W$ | $N-ab$ | $SS_B$ | $b-1$ |
+| Balanced two-way, interaction $AB$ | $SS_W$ | $N-ab$ | $SS_{AB}$ | $(a-1)(b-1)$ |
+| One-way repeated measures, condition $A$ | $SS_{A\times S}$ | $(a-1)(n-1)$ | $SS_A$ | $a-1$ |
+
+For the balanced two-way rows, $a$ and $b$ count factor levels, $n$ is the
+common cell size, and $N=abn$; the full model gives every cell its own mean.
+For the repeated-measures row, $n$ participants each supply $a$ condition
+scores. The repeated-measures model retains participant effects, so its
+restricted error and its df are $E_R=SS_A+SS_{A\times S}$ and $df_R=na-n$, while
+the full-model error is the participant-by-condition residual. The derivations
+and ANOVA tables appear
+in [Factorial ANOVA](/topics/anova/factorial-anova) and
+[One-Way Repeated-Measures ANOVA](/topics/anova/repeated-measures-anova).
+
+The repeated-measures row gives the **uncorrected** model and reference degrees
+of freedom. Greenhouse–Geisser and Huynh–Feldt corrections leave the sums of
+squares, mean squares, and observed $F$ unchanged but replace the reference pair
+by
+
+$$
+(df_1^*,df_2^*)=
+\bigl(\hat\epsilon(a-1),\,\hat\epsilon(a-1)(n-1)\bigr),
+$$
+
+where $\hat\epsilon$ is the estimated sphericity adjustment. These fractional
+values index the reference distribution; they do not change the model's
+parameter counts or the SS partition. See
+[Repeated-Measures Assumptions and Corrections](/topics/anova/repeated-measures-assumptions).
+
+A within-person contrast with its own contrast-score standard error uses a
+different denominator altogether: its paired $t$ has $n-1$ degrees of freedom,
+or equivalently its $F=t^2$ has $(1,n-1)$. It does not use either the pooled
+$(a-1)(n-1)$ denominator or an epsilon-corrected version of it. See
+[Repeated-Measures Comparisons](/topics/anova/repeated-measures-comparisons).
 
 ## The shared worked example
 
@@ -184,3 +224,13 @@ denominator of every test, never change.
   Tukey, and Scheffé procedures whose critical values appear above.
 - [Power for Omnibus ANOVA](/topics/anova/power): the noncentral $F$ with the
   same degrees-of-freedom pair.
+- [Factorial ANOVA](/topics/anova/factorial-anova): the balanced two-way
+  partitions and restrictions summarized above.
+- [Factorial ANOVA Follow-Up Tests](/topics/anova/factorial-follow-ups):
+  simple-effect and marginal-mean applications of the same quantities.
+- [One-Way Repeated-Measures ANOVA](/topics/anova/repeated-measures-anova):
+  participant, condition, and participant-by-condition quantities.
+- [Repeated-Measures Assumptions and Corrections](/topics/anova/repeated-measures-assumptions):
+  the uncorrected and epsilon-corrected reference degrees of freedom.
+- [Repeated-Measures Comparisons](/topics/anova/repeated-measures-comparisons):
+  contrast-specific within-person errors and their $n-1$ degrees of freedom.

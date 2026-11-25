@@ -43,7 +43,8 @@ Analyzing Data: A Model Comparison Perspective*. 3rd ed. Routledge, 2018.
 [Companion site](https://designingexperiments.com/) #ref/mdk
 
 Canonical reference for the [Analysis of Variance](/topics/anova/) collection,
-including model comparison, contrasts, multiple comparisons, and power.
+including model comparison, factorial and repeated-measures designs, contrasts,
+multiple comparisons, and power.
 
 ## Professional standards
 

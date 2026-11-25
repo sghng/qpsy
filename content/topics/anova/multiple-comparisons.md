@@ -13,7 +13,10 @@ procedures control the error rate for a *collection* of tests rather than for
 each test in isolation. The collection is built from the comparisons defined
 in [Linear Contrasts](/topics/anova/contrasts), and the procedures below
 presuppose the equal-variance, independent-groups setting of
-[One-Way ANOVA](/topics/anova/one-way-anova).
+[One-Way ANOVA](/topics/anova/one-way-anova). Bonferroni's family definition and
+union-bound argument also accommodate comparison-specific within-person errors,
+as developed in
+[Repeated-Measures Comparisons](/topics/anova/repeated-measures-comparisons).
 
 ## Per-comparison and familywise error
 

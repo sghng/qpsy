@@ -17,7 +17,11 @@ adding a predictor in regression to testing an interaction.
 
 This page develops the framework for the one-factor independent-groups design;
 the classic decomposition, assumptions, and summary table are treated in
-[One-Way ANOVA](/topics/anova/one-way-anova).
+[One-Way ANOVA](/topics/anova/one-way-anova). The same restricted-versus-full
+logic extends to [Factorial ANOVA](/topics/anova/factorial-anova), where each
+main effect and interaction supplies a restriction, and to
+[One-Way Repeated-Measures ANOVA](/topics/anova/repeated-measures-anova),
+where both models retain participant effects.
 
 ## Models as prediction rules
 

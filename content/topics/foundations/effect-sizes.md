@@ -97,8 +97,13 @@ The hypothesis-testing context for the tests themselves is in
 
 Different model families motivate different standardized summaries. In one-way
 ANOVA, [Model Comparison](/topics/anova/model-comparison) develops $\eta^2$ as
-proportional error reduction, while [Linear Contrasts](/topics/anova/contrasts)
-distinguishes standardized contrasts and variance-explained measures with
-between-group and total denominators. [Power for Omnibus ANOVA](/topics/anova/power)
-defines Cohen's $f$ for specifying an omnibus alternative. These measures are
-not interchangeable with Cohen's $d$ or with one another.
+proportional error reduction, while [Factorial ANOVA](/topics/anova/factorial-anova)
+distinguishes ordinary and partial $\eta^2$ for several omnibus effects.
+[One-Way Repeated-Measures ANOVA](/topics/anova/repeated-measures-anova) develops
+the corresponding within-subjects denominators and contrasts participant-inclusive
+and difference-score standardizers for mean differences.
+[Linear Contrasts](/topics/anova/contrasts) distinguishes standardized contrasts
+and variance-explained measures with between-group and total denominators.
+[Power for Omnibus ANOVA](/topics/anova/power) defines Cohen's $f$ for specifying
+an omnibus alternative. These measures are not interchangeable with Cohen's $d$
+or with one another.

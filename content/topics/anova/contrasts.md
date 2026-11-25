@@ -14,6 +14,12 @@ as a statement about a weighted combination of group means and provides a single
 test, interval, and effect size for it. This page develops the machinery for one
 contrast at a time; testing several contrasts raises the risk of false positives,
 which is the subject of [Multiple Comparisons](/topics/anova/multiple-comparisons).
+For the contrast representation of factorial main effects and interactions, see
+[Factorial ANOVA](/topics/anova/factorial-anova); for simple effects and
+marginal-mean follow-ups, see
+[Factorial ANOVA Follow-Up Tests](/topics/anova/factorial-follow-ups). For
+within-person contrast scores and comparison-specific error estimates, see
+[Repeated-Measures Comparisons](/topics/anova/repeated-measures-comparisons).
 
 Throughout, $Y_{ij}$ is observation $i$ in group $j$ of $a$ groups, $n_j$ is the
 sample size in group $j$, $N=\sum_j n_j$, $\bar Y_j$ is the group mean, and

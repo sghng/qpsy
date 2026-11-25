@@ -266,6 +266,12 @@ with [linear contrasts](/topics/anova/contrasts) and
   tests.
 - [Power for ANOVA](/topics/anova/power) covers prospective design of
   one-factor studies.
+- [Factorial ANOVA](/topics/anova/factorial-anova) extends the independent-groups
+  framework to two factors, decomposing between-cell variability into main
+  effects and an interaction.
+- [One-Way Repeated-Measures ANOVA](/topics/anova/repeated-measures-anova)
+  replaces the independent-groups error term when every participant contributes
+  a score in every condition.
 - [t tests](/topics/foundations/t-tests) treat the two-group case;
   [sampling distributions](/topics/foundations/sampling-distributions) and
   [hypothesis testing](/topics/foundations/hypothesis-testing) supply the
